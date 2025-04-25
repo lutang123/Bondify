@@ -80,7 +80,7 @@ export default function CategoryPage() {
         
         <div className="text-center">
           <Button 
-            className={`px-8 py-6 rounded-full bg-${id} hover:bg-${id}/90 text-white`}
+            className="px-8 py-6 rounded-full bg-purple-500 text-white"
           >
             Show me more questions
           </Button>

@@ -91,7 +91,7 @@ export default function JoinClub() {
                     </li>
                   </ul>
                   
-                  <Button className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium">
+                  <Button className="w-full bg-purple-500 text-white font-medium">
                     Upgrade Now
                   </Button>
                   
