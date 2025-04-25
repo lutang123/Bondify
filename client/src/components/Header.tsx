@@ -51,11 +51,11 @@ export default function Header() {
             </DropdownMenuContent>
           </DropdownMenu>
           
-          <Link href="/about" className={`font-medium ${location === "/about" ? "text-purple-600" : "text-gray-700 hover:text-purple-600"} transition-colors`}>
+          <Link href="/about" className={`font-medium ${location === "/about" ? "text-[hsl(var(--lovers))]" : "text-gray-700 hover:text-[hsl(var(--lovers))]"} transition-colors`}>
               About
           </Link>
           
-          <Link href="/join-club" className="font-medium px-5 py-2 rounded-full bg-purple-500 text-white hover:shadow-md transition-all">
+          <Link href="/join-club" className="font-medium px-5 py-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:shadow-md transition-all">
               Join Bondify Club
           </Link>
         </nav>
@@ -81,21 +81,21 @@ export default function Header() {
           className="md:hidden border-t border-gray-100"
         >
           <div className="px-2 pt-2 pb-3 space-y-1">
-            <Link href="/" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-purple-100 hover:text-purple-600">
+            <Link href="/" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-[hsl(var(--lovers))/10] hover:text-[hsl(var(--lovers))]">
               Home
             </Link>
             
             {categories.map(category => (
-              <Link key={category.id} href={`/category/${category.id}`} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-purple-100 hover:text-purple-600">
+              <Link key={category.id} href={`/category/${category.id}`} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-[hsl(var(--lovers))/10] hover:text-[hsl(var(--lovers))]">
                 {category.name}
               </Link>
             ))}
             
-            <Link href="/about" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-purple-100 hover:text-purple-600">
+            <Link href="/about" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-[hsl(var(--lovers))/10] hover:text-[hsl(var(--lovers))]">
               About
             </Link>
             
-            <Link href="/join-club" className="block px-3 py-2 rounded-md text-base font-medium text-white bg-purple-500">
+            <Link href="/join-club" className="block px-3 py-2 rounded-md text-base font-medium text-white bg-gradient-to-r from-purple-500 to-pink-500">
               Join Bondify Club
             </Link>
           </div>
