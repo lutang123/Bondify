@@ -20,23 +20,23 @@ export default function Footer() {
           </div>
           
           <div className="flex flex-wrap justify-center md:justify-end gap-6">
-            <Link href="/">
-              <a className="text-gray-600 hover:text-[hsl(var(--lovers))] transition-colors">Home</a>
+            <Link href="/" className="text-gray-600 hover:text-[hsl(var(--lovers))] transition-colors">
+              Home
             </Link>
-            <Link href="/">
-              <a className="text-gray-600 hover:text-[hsl(var(--lovers))] transition-colors">Categories</a>
+            <Link href="/" className="text-gray-600 hover:text-[hsl(var(--lovers))] transition-colors">
+              Categories
             </Link>
-            <Link href="/about">
-              <a className="text-gray-600 hover:text-[hsl(var(--lovers))] transition-colors">About</a>
+            <Link href="/about" className="text-gray-600 hover:text-[hsl(var(--lovers))] transition-colors">
+              About
             </Link>
-            <Link href="/join-club">
-              <a className="text-gray-600 hover:text-[hsl(var(--lovers))] transition-colors">Join Bondify Club</a>
+            <Link href="/join-club" className="text-gray-600 hover:text-[hsl(var(--lovers))] transition-colors">
+              Join Bondify Club
             </Link>
-            <Link href="/">
-              <a className="text-gray-600 hover:text-[hsl(var(--lovers))] transition-colors">Privacy</a>
+            <Link href="/" className="text-gray-600 hover:text-[hsl(var(--lovers))] transition-colors">
+              Privacy
             </Link>
-            <Link href="/">
-              <a className="text-gray-600 hover:text-[hsl(var(--lovers))] transition-colors">Terms</a>
+            <Link href="/" className="text-gray-600 hover:text-[hsl(var(--lovers))] transition-colors">
+              Terms
             </Link>
           </div>
         </div>

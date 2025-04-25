@@ -55,10 +55,8 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
         <p className="italic text-sm text-gray-500 mb-4">
           "{quote}"
         </p>
-        <Link href={`/category/${id}`}>
-          <a className={`block w-full py-3 rounded-full bg-gradient-to-r from-${id}/90 to-${id} text-white text-center font-medium hover:shadow-md transition-all`}>
-            Start Your Journey
-          </a>
+        <Link href={`/category/${id}`} className={`block w-full py-3 rounded-full bg-gradient-to-r from-${id}/90 to-${id} text-white text-center font-medium hover:shadow-md transition-all`}>
+          Start Your Journey
         </Link>
       </div>
     </motion.div>

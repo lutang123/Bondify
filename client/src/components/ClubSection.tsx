@@ -48,10 +48,8 @@ export default function ClubSection() {
                 </ul>
                 
                 <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
-                  <Link href="/join-club">
-                    <a className="w-full sm:w-auto px-8 py-3 rounded-full bg-gradient-to-r from-[hsl(var(--lovers))] to-[hsl(var(--twilight))] text-white text-center font-medium hover:shadow-md transition-all">
-                      <span className="line-through text-white/80 mr-1">$3.99</span> $1.99/month
-                    </a>
+                  <Link href="/join-club" className="w-full sm:w-auto px-8 py-3 rounded-full bg-gradient-to-r from-[hsl(var(--lovers))] to-[hsl(var(--twilight))] text-white text-center font-medium hover:shadow-md transition-all">
+                    <span className="line-through text-white/80 mr-1">$3.99</span> $1.99/month
                   </Link>
                   <span className="text-sm text-gray-500 italic">Launch offer!</span>
                 </div>

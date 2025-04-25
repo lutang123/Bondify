@@ -27,10 +27,8 @@ export default function Header() {
         </Link>
         
         <nav className="hidden md:flex items-center space-x-8">
-          <Link href="/">
-            <a className={`font-medium ${location === "/" ? "text-[hsl(var(--lovers))]" : "text-gray-700 hover:text-[hsl(var(--lovers))]"} transition-colors`}>
+          <Link href="/" className={`font-medium ${location === "/" ? "text-[hsl(var(--lovers))]" : "text-gray-700 hover:text-[hsl(var(--lovers))]"} transition-colors`}>
               Home
-            </a>
           </Link>
           
           <DropdownMenu>
@@ -45,26 +43,20 @@ export default function Header() {
             <DropdownMenuContent className="w-56 p-2">
               {categories.map(category => (
                 <DropdownMenuItem key={category.id} asChild>
-                  <Link href={`/category/${category.id}`}>
-                    <a className={`flex px-4 py-2 text-sm rounded-md hover:bg-${category.id}/10 hover:text-${category.id}`}>
-                      {category.name}
-                    </a>
+                  <Link href={`/category/${category.id}`} className={`flex px-4 py-2 text-sm rounded-md hover:bg-${category.id}/10 hover:text-${category.id}`}>
+                    {category.name}
                   </Link>
                 </DropdownMenuItem>
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
           
-          <Link href="/about">
-            <a className={`font-medium ${location === "/about" ? "text-[hsl(var(--lovers))]" : "text-gray-700 hover:text-[hsl(var(--lovers))]"} transition-colors`}>
+          <Link href="/about" className={`font-medium ${location === "/about" ? "text-[hsl(var(--lovers))]" : "text-gray-700 hover:text-[hsl(var(--lovers))]"} transition-colors`}>
               About
-            </a>
           </Link>
           
-          <Link href="/join-club">
-            <a className="font-medium px-5 py-2 rounded-full bg-gradient-to-r from-[hsl(var(--lovers))/90] to-[hsl(var(--twilight))/90] text-white hover:shadow-md transition-all">
+          <Link href="/join-club" className="font-medium px-5 py-2 rounded-full bg-gradient-to-r from-[hsl(var(--lovers))/90] to-[hsl(var(--twilight))/90] text-white hover:shadow-md transition-all">
               Join Bondify Club
-            </a>
           </Link>
         </nav>
         
@@ -89,30 +81,22 @@ export default function Header() {
           className="md:hidden border-t border-gray-100"
         >
           <div className="px-2 pt-2 pb-3 space-y-1">
-            <Link href="/">
-              <a className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-[hsl(var(--lovers))/10] hover:text-[hsl(var(--lovers))]">
-                Home
-              </a>
+            <Link href="/" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-[hsl(var(--lovers))/10] hover:text-[hsl(var(--lovers))]">
+              Home
             </Link>
             
             {categories.map(category => (
-              <Link key={category.id} href={`/category/${category.id}`}>
-                <a className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-[hsl(var(--lovers))/10] hover:text-[hsl(var(--lovers))]">
-                  {category.name}
-                </a>
+              <Link key={category.id} href={`/category/${category.id}`} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-[hsl(var(--lovers))/10] hover:text-[hsl(var(--lovers))]">
+                {category.name}
               </Link>
             ))}
             
-            <Link href="/about">
-              <a className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-[hsl(var(--lovers))/10] hover:text-[hsl(var(--lovers))]">
-                About
-              </a>
+            <Link href="/about" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-[hsl(var(--lovers))/10] hover:text-[hsl(var(--lovers))]">
+              About
             </Link>
             
-            <Link href="/join-club">
-              <a className="block px-3 py-2 rounded-md text-base font-medium text-white bg-gradient-to-r from-[hsl(var(--lovers))] to-[hsl(var(--twilight))]">
-                Join Bondify Club
-              </a>
+            <Link href="/join-club" className="block px-3 py-2 rounded-md text-base font-medium text-white bg-gradient-to-r from-[hsl(var(--lovers))] to-[hsl(var(--twilight))]">
+              Join Bondify Club
             </Link>
           </div>
         </motion.div>
