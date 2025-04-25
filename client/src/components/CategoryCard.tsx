@@ -64,16 +64,7 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
         </p>
         <Link 
           href={`/category/${id}`} 
-          className="block w-full py-3 rounded-full text-white text-center font-medium hover:shadow-md transition-all"
-          style={{
-            background: id === 'twilight' ? 'linear-gradient(to right, #ff6666, #ff4040)' : 
-                         id === 'lovers' ? 'linear-gradient(to right, #9933cc, #800080)' : 
-                         id === 'sunlit' ? 'linear-gradient(to right, #ffcc00, #ffaa00)' : 
-                         id === 'brainstorm' ? 'linear-gradient(to right, #ff9933, #ff6600)' : 
-                         id === 'woodland' ? 'linear-gradient(to right, #339966, #006633)' : 
-                         id === 'mirror' ? 'linear-gradient(to right, #6699ff, #3366cc)' : 
-                         'linear-gradient(to right, #666666, #333333)'
-          }}
+          className="block w-full py-3 rounded-full bg-purple-500 text-white text-center font-medium hover:shadow-md transition-all"
         >
           Start Your Journey
         </Link>
