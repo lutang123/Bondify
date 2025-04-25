@@ -1,5 +1,7 @@
-import { users, type User, type InsertUser, Category, Question } from "@shared/schema";
+import { users, type User, type InsertUser, Category, Question, categories, questions } from "@shared/schema";
 import { categories as categoriesData } from "@/lib/data";
+import { db } from "./db";
+import { eq } from "drizzle-orm";
 
 // Storage interface
 export interface IStorage {
@@ -9,91 +11,82 @@ export interface IStorage {
   getAllCategories(): Promise<Category[]>;
   getCategoryById(id: string): Promise<Category | undefined>;
   getQuestionsByCategoryId(categoryId: string): Promise<Question[]>;
+  seedDatabase(): Promise<void>;
 }
 
-// In-memory storage implementation
-export class MemStorage implements IStorage {
-  private users: Map<number, User>;
-  private categories: Map<string, Category>;
-  private questions: Map<number, Question>;
-  private currentUserId: number;
-  private currentQuestionId: number;
-
-  constructor() {
-    this.users = new Map();
-    this.categories = new Map();
-    this.questions = new Map();
-    this.currentUserId = 1;
-    this.currentQuestionId = 1;
-    
-    // Initialize with sample data
-    this.initializeData();
-  }
-
-  private initializeData() {
-    // Initialize categories
-    categoriesData.forEach(cat => {
-      const category: Category = {
-        id: cat.id,
-        name: cat.name,
-        subtitle: cat.subtitle,
-        description: cat.description,
-        quote: cat.quote,
-        imageUrl: cat.imageUrl,
-        isPremium: cat.isPremium || false
-      };
-      this.categories.set(cat.id, category);
-
-      // Initialize questions for this category
-      cat.sampleQuestions.forEach(questionText => {
-        const questionId = this.currentQuestionId++;
-        const question: Question = {
-          id: questionId,
-          categoryId: cat.id,
-          text: questionText,
-          isPremium: cat.isPremium || false
-        };
-        this.questions.set(questionId, question);
-      });
-    });
-  }
-
+// Database storage implementation
+export class DatabaseStorage implements IStorage {
   async getUser(id: number): Promise<User | undefined> {
-    return this.users.get(id);
+    const [user] = await db.select().from(users).where(eq(users.id, id));
+    return user || undefined;
   }
 
   async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username
-    );
+    const [user] = await db.select().from(users).where(eq(users.username, username));
+    return user || undefined;
   }
 
   async createUser(insertUser: InsertUser): Promise<User> {
-    const id = this.currentUserId++;
-    const user: User = { 
-      ...insertUser, 
-      id, 
-      isPremium: false,
-      favoriteQuestions: []
-    };
-    this.users.set(id, user);
+    const [user] = await db
+      .insert(users)
+      .values({ 
+        ...insertUser,
+        isPremium: false,
+        favoriteQuestions: []
+      })
+      .returning();
     return user;
   }
 
   async getAllCategories(): Promise<Category[]> {
-    return Array.from(this.categories.values());
+    return db.select().from(categories);
   }
 
   async getCategoryById(id: string): Promise<Category | undefined> {
-    return this.categories.get(id);
+    const [category] = await db.select().from(categories).where(eq(categories.id, id));
+    return category || undefined;
   }
 
   async getQuestionsByCategoryId(categoryId: string): Promise<Question[]> {
-    return Array.from(this.questions.values()).filter(
-      (question) => question.categoryId === categoryId
-    );
+    return db.select().from(questions).where(eq(questions.categoryId, categoryId));
+  }
+
+  async seedDatabase(): Promise<void> {
+    // Check if we have any categories already
+    const existingCategories = await db.select().from(categories);
+    
+    if (existingCategories.length === 0) {
+      console.log("Seeding database with initial categories and questions...");
+      
+      // Seed categories
+      for (const cat of categoriesData) {
+        // Insert category
+        await db.insert(categories).values({
+          id: cat.id,
+          name: cat.name,
+          subtitle: cat.subtitle,
+          description: cat.description,
+          quote: cat.quote,
+          imageUrl: cat.imageUrl,
+          isPremium: cat.isPremium || false
+        });
+        
+        // Insert questions for this category
+        for (const questionText of cat.sampleQuestions) {
+          await db.insert(questions).values({
+            categoryId: cat.id,
+            text: questionText,
+            isPremium: cat.isPremium || false
+          });
+        }
+      }
+      
+      console.log("Database seeding completed.");
+    } else {
+      console.log("Database already contains data, skipping seed.");
+    }
   }
 }
 
 // Initialize storage
-export const storage = new MemStorage();
+export const storage = new DatabaseStorage();
