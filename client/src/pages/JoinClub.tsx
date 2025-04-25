@@ -15,7 +15,7 @@ export default function JoinClub() {
       <div className="bg-bubble-100 py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h1 className="font-accent text-4xl md:text-5xl font-bold mb-6 text-center bg-gradient-to-r from-[hsl(var(--lovers))] to-[hsl(var(--twilight))] gradient-text">
+            <h1 className="font-accent text-4xl md:text-5xl font-bold mb-6 text-center bg-gradient-to-r from-purple-500 to-pink-500 gradient-text">
               Join the Bondify Club
             </h1>
             
@@ -52,8 +52,8 @@ export default function JoinClub() {
                 </CardContent>
               </Card>
               
-              <Card className="border border-[hsl(var(--lovers))] shadow-lg relative">
-                <div className="absolute top-0 right-0 translate-x-2 -translate-y-2 bg-[hsl(var(--sunlit))] text-white rounded-full py-2 px-4 font-accent transform rotate-6 shadow-md">
+              <Card className="border border-purple-500 shadow-lg relative">
+                <div className="absolute top-0 right-0 translate-x-2 -translate-y-2 bg-yellow-400 text-white rounded-full py-2 px-4 font-accent transform rotate-6 shadow-md">
                   Launch Special!
                 </div>
                 <CardContent className="p-8">
@@ -91,7 +91,7 @@ export default function JoinClub() {
                     </li>
                   </ul>
                   
-                  <Button className="w-full bg-gradient-to-r from-[hsl(var(--lovers))] to-[hsl(var(--twilight))]">
+                  <Button className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white">
                     Upgrade Now
                   </Button>
                   
