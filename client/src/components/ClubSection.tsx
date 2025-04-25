@@ -73,14 +73,14 @@ export default function ClubSection() {
                   <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
                     <div className="flex items-center space-x-2">
                       <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
-                        <span className="text-[hsl(var(--lovers))] font-accent font-bold text-sm">B</span>
+                        <span className="text-purple-500 font-accent font-bold text-sm">B</span>
                       </div>
                       <span className="text-white font-medium">Join our community of connectors</span>
                     </div>
                   </div>
                 </motion.div>
                 
-                <div className="absolute -top-4 -right-4 bg-[hsl(var(--sunlit))]/90 text-white rounded-full py-2 px-4 font-accent transform rotate-6 shadow-md">
+                <div className="absolute -top-4 -right-4 bg-yellow-400/90 text-white rounded-full py-2 px-4 font-accent transform rotate-6 shadow-md">
                   Launch Special!
                 </div>
               </div>

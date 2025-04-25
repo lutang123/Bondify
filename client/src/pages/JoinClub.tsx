@@ -66,27 +66,27 @@ export default function JoinClub() {
                   
                   <ul className="space-y-3 mb-8">
                     <li className="flex items-center">
-                      <Check className="h-5 w-5 text-[hsl(var(--lovers))] mr-2" />
+                      <Check className="h-5 w-5 text-purple-500 mr-2" />
                       <span>Save progress, fav Qs</span>
                     </li>
                     <li className="flex items-center">
-                      <Check className="h-5 w-5 text-[hsl(var(--lovers))] mr-2" />
+                      <Check className="h-5 w-5 text-purple-500 mr-2" />
                       <span>Get weekly expert-curated convo packs</span>
                     </li>
                     <li className="flex items-center">
-                      <Check className="h-5 w-5 text-[hsl(var(--lovers))] mr-2" />
+                      <Check className="h-5 w-5 text-purple-500 mr-2" />
                       <span>Join exclusive Discord community</span>
                     </li>
                     <li className="flex items-center">
-                      <Check className="h-5 w-5 text-[hsl(var(--lovers))] mr-2" />
+                      <Check className="h-5 w-5 text-purple-500 mr-2" />
                       <span>Early access to new decks</span>
                     </li>
                     <li className="flex items-center">
-                      <Check className="h-5 w-5 text-[hsl(var(--lovers))] mr-2" />
+                      <Check className="h-5 w-5 text-purple-500 mr-2" />
                       <span>Get invited to IRL Bondify Socials</span>
                     </li>
                     <li className="flex items-center">
-                      <Check className="h-5 w-5 text-[hsl(var(--lovers))] mr-2" />
+                      <Check className="h-5 w-5 text-purple-500 mr-2" />
                       <span>Unlock premium "Lover's Lantern" deck</span>
                     </li>
                   </ul>
