@@ -55,7 +55,7 @@ export default function Header() {
               About
           </Link>
           
-          <Link href="/join-club" className="font-medium px-5 py-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:shadow-md transition-all">
+          <Link href="/join-club" className="font-medium px-5 py-2 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:shadow-md transition-all">
               Join Bondify Club
           </Link>
         </nav>
@@ -95,7 +95,7 @@ export default function Header() {
               About
             </Link>
             
-            <Link href="/join-club" className="block px-3 py-2 rounded-md text-base font-medium text-white bg-gradient-to-r from-purple-500 to-pink-500">
+            <Link href="/join-club" className="block px-3 py-2 rounded-md text-base font-medium text-white bg-gradient-to-r from-purple-600 to-pink-600">
               Join Bondify Club
             </Link>
           </div>

@@ -26,13 +26,13 @@
   --ring: 262 51% 62%;
   --radius: 1rem;
   
-  /* Category Colors */
-  --twilight: 359 100% 77%;
-  --lovers: 262 51% 62%;
-  --sunlit: 40 100% 72%;
-  --brainstorm: 21 100% 68%;
-  --woodland: 142 33% 71%;
-  --mirror: 213 100% 76%;
+  /* Category Colors - Updated with specific palettes */
+  --twilight: 359 80% 65%;    /* Sunset pink/orange */
+  --lovers: 280 70% 50%;      /* Deep purple/pink */
+  --sunlit: 45 100% 65%;      /* Warm gold/yellow */
+  --brainstorm: 20 100% 60%;  /* Bright orange */
+  --woodland: 140 40% 50%;    /* Forest green */
+  --mirror: 210 80% 70%;      /* Soft blues/lavender */
   
   /* Bubble Colors */
   --bubble-100: 240 100% 98%;
