@@ -40,7 +40,7 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
     }
   }
 
-  // Define the prompt text based on category
+  // Define the prompt text based on category (without quotes)
   const getPromptText = () => {
     switch(id) {
       case 'twilight': return "Don't believe in love at first sight? Try this.";
