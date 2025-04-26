@@ -9,6 +9,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { categories } from "@/lib/data";
+import Logo from "./Logo";
 
 export default function Header() {
   const [location] = useLocation();
@@ -17,14 +18,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 bg-white/95 backdrop-blur-sm z-50 shadow-sm">
       <div className="container mx-auto flex justify-between items-center px-4 py-3">
-        <Link href="/" className="flex items-center space-x-2">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-r from-[hsl(var(--lovers))] to-[hsl(var(--twilight))] flex items-center justify-center">
-            <span className="text-white font-accent font-bold text-xl">B</span>
-          </div>
-          <span className="font-accent text-2xl font-semibold bg-gradient-to-r from-[hsl(var(--lovers))] to-[hsl(var(--twilight))] gradient-text">
-            Bondify
-          </span>
-        </Link>
+        <Logo size={40} withText={true} />
         
         <nav className="hidden md:flex items-center space-x-8">
           <Link href="/" className={`font-medium ${location === "/" ? "text-[hsl(var(--lovers))]" : "text-gray-700 hover:text-[hsl(var(--lovers))]"} transition-colors`}>

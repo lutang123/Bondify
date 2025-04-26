@@ -9,6 +9,7 @@ import Home from "@/pages/Home";
 import About from "@/pages/About";
 import CategoryPage from "@/pages/CategoryPage";
 import JoinClub from "@/pages/JoinClub";
+import DownloadLogo from "@/pages/DownloadLogo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
