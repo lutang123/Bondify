@@ -66,15 +66,16 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
       transition={{ duration: 0.5, delay }}
       className="category-card rounded-3xl overflow-hidden shadow-soft bg-white border border-gray-100 hover:border-gray-300"
     >
-      <div className="h-40 overflow-hidden relative">
+      <div className="h-48 overflow-hidden relative">
         <img 
           src={imageUrl} 
           alt={name} 
-          className="w-full h-full object-cover" 
+          className="w-full h-full object-cover object-center" 
+          loading="lazy"
         />
         <div className={`absolute inset-0 ${getOverlayGradient(id)}`}></div>
         <div className="absolute bottom-0 left-0 w-full p-4">
-          <h3 className="font-accent text-2xl font-bold text-white">{name}</h3>
+          <h3 className="font-accent text-2xl font-bold text-white drop-shadow-md">{name}</h3>
         </div>
       </div>
       

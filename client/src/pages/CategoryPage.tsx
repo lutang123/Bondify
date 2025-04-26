@@ -85,19 +85,20 @@ export default function CategoryPage() {
       transition={{ duration: 0.5 }}
       className="flex-grow"
     >
-      <div className={`h-40 overflow-hidden relative ${colors.bgLight}`}>
+      <div className={`h-56 md:h-64 overflow-hidden relative ${colors.bgLight}`}>
         <img 
           src={category.imageUrl} 
           alt={category.name} 
-          className="w-full h-full object-cover opacity-50"
+          className="w-full h-full object-cover opacity-80"
+          loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 w-full p-4">
-          <h1 className="font-accent text-3xl font-bold text-white">{category.name}</h1>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 w-full p-6">
+          <h1 className="font-accent text-4xl font-bold text-white drop-shadow-md">{category.name}</h1>
         </div>
         <Button 
           variant="ghost" 
-          className="absolute top-4 left-4 text-white"
+          className="absolute top-4 left-4 text-white bg-black/20 hover:bg-black/30"
           onClick={() => navigate("/")}
         >
           <ArrowLeft className="mr-2 h-4 w-4" /> Back
