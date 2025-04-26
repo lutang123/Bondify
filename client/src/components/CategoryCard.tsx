@@ -101,7 +101,7 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
         </div>
         <div className="mb-6 flex-grow">
           <p className="italic text-sm text-gray-500 mb-3 border-l-2 pl-3 border-gray-200">
-            "{getPromptText()}"
+            {getPromptText()}
           </p>
           <p className="text-gray-700 text-base">
             {getDescriptionText()}
