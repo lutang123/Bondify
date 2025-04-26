@@ -147,7 +147,7 @@ function QuestionCard({
               }}
             >
               <Check className={`h-4 w-4 mr-1 ${isAnswered ? 'text-purple-600' : ''}`} />
-              {isAnswered ? 'Mark Discussed' : 'Mark Discussed'}
+              {isAnswered ? 'Discussed' : 'Mark Discussed'}
             </Button>
             
             <Button 

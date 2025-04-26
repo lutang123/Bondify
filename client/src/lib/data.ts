@@ -1,9 +1,11 @@
 // Use URLs for assets that will work in both development and production
-// No need for conditional paths since we're using the same structure
-const mirrorMeadowImage = "/assets/mirror_meadow.jpg";
-const twilightTidesImage = "/assets/twilight_tide.png";
-const loversLanternImage = "/assets/lover_lantern.png";
-const woodlandWonderImage = "/assets/woodland_wonder.png";
+// Using SVG placeholders which are guaranteed to work
+const mirrorMeadowImage = "/assets/mirror_meadow.svg";
+const twilightTidesImage = "/assets/twilight_tide.svg";
+const loversLanternImage = "/assets/lover_lantern.svg";
+const woodlandWonderImage = "/assets/woodland_wonder.svg";
+const brainstormBlitzImage = "/assets/brainstorm_blitz.svg";
+const sunlitSocialImage = "/assets/sunlit_social.svg";
 
 export interface Category {
   id: string;
@@ -54,7 +56,7 @@ export const categories: Category[] = [
     subtitle: "Stranger Things & Friend Flings",
     description: "In a bar or meetup and everyone's glued to their phones? This category brings laughter, party mode games, and \"bond with a stranger\" challenges.",
     quote: "Friendship speedrun: initiate in 3... 2... 1...",
-    imageUrl: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200&q=80",
+    imageUrl: sunlitSocialImage,
     sampleQuestions: [
       "What's the strangest talent you have that few people know about?",
       "If you could instantly master one skill, what would it be and why?",
@@ -69,7 +71,7 @@ export const categories: Category[] = [
     subtitle: "Mind Games & Icebreakers",
     description: "Up for some mental gymnastics? Explore fun riddles, what-ifs, ethical dilemmas, and party-style debate prompts.",
     quote: "Pub quiz meets party game meets deep-thought detour.",
-    imageUrl: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200&q=80",
+    imageUrl: brainstormBlitzImage,
     sampleQuestions: [
       "Would you rather have unlimited money but no friends, or be broke with amazing friends?",
       "If you could know the absolute truth to one question, what would you ask?",
