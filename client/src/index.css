@@ -125,6 +125,10 @@
   .perspective-1000 {
     perspective: 1000px;
   }
+  
+  .perspective-1500 {
+    perspective: 1500px;
+  }
 
   .preserve-3d {
     transform-style: preserve-3d;
@@ -137,10 +141,33 @@
   .rotate-y-180 {
     transform: rotateY(180deg);
   }
+  
+  /* Card animation classes */
+  .translate-z-0 {
+    transform: translateZ(0);
+  }
+  
+  .translate-z-20 {
+    transform: translateZ(20px);
+  }
+  
+  .translate-z-neg-20 {
+    transform: translateZ(-20px);
+  }
+  
+  .translate-z-neg-40 {
+    transform: translateZ(-40px);
+  }
 
   /* Shadow for cards */
   .shadow-soft {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 
                 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  }
+  
+  .shadow-card {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                0 4px 6px -2px rgba(0, 0, 0, 0.05),
+                0 0 0 1px rgba(255, 255, 255, 0.1);
   }
 }

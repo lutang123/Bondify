@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowLeft, Heart, Shuffle, Check, ChevronRight, Star } from "lucide-react";
+import { ArrowLeft, Heart, Shuffle, Check, ChevronRight, Star, Home } from "lucide-react";
 import { categories } from "@/lib/data";
 
 // Extend the sample questions for the demo
@@ -32,7 +32,6 @@ const extendedQuestions = [
 
 type QuestionCardProps = {
   question: string;
-  colors: any;
   isFlipped: boolean;
   onFlip: () => void;
   isFavorite: boolean;
@@ -44,7 +43,6 @@ type QuestionCardProps = {
 
 function QuestionCard({ 
   question, 
-  colors, 
   isFlipped, 
   onFlip, 
   isFavorite, 
@@ -54,51 +52,43 @@ function QuestionCard({
   onNext
 }: QuestionCardProps) {
   return (
-    <div className="perspective-1000 w-full max-w-md mx-auto h-64 cursor-pointer">
+    <div className="perspective-1000 w-full max-w-md mx-auto h-80 cursor-pointer">
       <motion.div
         className={`relative w-full h-full transition-all duration-500 preserve-3d ${isFlipped ? 'rotate-y-180' : ''}`}
         animate={{ rotateY: isFlipped ? 180 : 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
+        whileHover={{ scale: 1.02 }}
       >
         {/* Card Front */}
         <div 
-          className={`absolute w-full h-full backface-hidden rounded-2xl ${colors.bgLight} border-2 ${colors.border} shadow-soft flex items-center justify-center`}
+          className="absolute w-full h-full backface-hidden rounded-2xl bg-white/95 backdrop-blur-lg border border-white/30 shadow-xl flex items-center justify-center"
           onClick={onFlip}
         >
-          <div className="text-center p-6">
-            <motion.div 
-              animate={{ 
-                scale: [1, 1.05, 1],
-              }}
-              transition={{ 
-                repeat: Infinity, 
-                duration: 2,
-                repeatType: "reverse"
-              }}
-            >
-              <Star className={`h-16 w-16, mx-auto mb-4 ${colors.text}`} />
-            </motion.div>
-            <h3 className={`text-xl font-medium ${colors.text}`}>Tap to reveal question</h3>
-            <p className="text-gray-500 text-sm mt-2">Take turns answering for best results</p>
+          <div className="text-center p-8">
+            <h3 className="text-2xl font-medium text-purple-700 font-accent drop-shadow-sm">Tap to reveal question</h3>
+            <p className="text-gray-600 text-sm mt-3">Take turns answering for best results</p>
           </div>
         </div>
 
         {/* Card Back */}
         <div 
-          className={`absolute w-full h-full backface-hidden rotate-y-180 rounded-2xl bg-white border-2 ${colors.border} shadow-md p-6 flex flex-col`}
+          className="absolute w-full h-full backface-hidden rotate-y-180 rounded-2xl bg-white/95 backdrop-blur-lg border border-white/30 shadow-xl p-8 flex flex-col"
         >
           <div className="flex-grow flex items-center justify-center">
-            <p className="text-lg font-medium text-gray-800 text-center">
+            <p className="text-xl font-medium text-gray-800 text-center leading-relaxed">
               {question}
             </p>
           </div>
           
-          <div className="flex justify-between items-center mt-4 pt-4 border-t border-gray-100">
+          <div className="flex justify-between items-center mt-6 pt-4 border-t border-gray-200">
             <Button 
               variant="ghost" 
               size="sm" 
               className={`${isFavorite ? 'text-red-500' : 'text-gray-400'} hover:text-red-500 hover:bg-red-50`}
-              onClick={onFavorite}
+              onClick={(e) => {
+                e.stopPropagation();
+                onFavorite();
+              }}
             >
               <Heart className={`h-5 w-5 ${isFavorite ? 'fill-current' : ''}`} />
             </Button>
@@ -106,8 +96,11 @@ function QuestionCard({
             <Button 
               variant="ghost" 
               size="sm" 
-              className={`${isAnswered ? `${colors.text} ${colors.bgLight}` : 'text-gray-400 hover:bg-gray-100'}`}
-              onClick={onAnswer}
+              className={`${isAnswered ? 'text-purple-500 bg-purple-50' : 'text-gray-400 hover:bg-gray-100'}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                onAnswer();
+              }}
             >
               <Check className="h-5 w-5 mr-1" />
               {isAnswered ? "Answered" : "Mark answered"}
@@ -116,8 +109,11 @@ function QuestionCard({
             <Button 
               variant="ghost" 
               size="sm" 
-              className={`text-gray-600 hover:${colors.text} hover:${colors.bgLight}`}
-              onClick={onNext}
+              className="text-gray-600 hover:text-purple-500 hover:bg-purple-50"
+              onClick={(e) => {
+                e.stopPropagation();
+                onNext();
+              }}
             >
               <ChevronRight className="h-5 w-5" />
             </Button>
@@ -133,6 +129,7 @@ export default function CategoryPage() {
   const [_, navigate] = useLocation();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false); // Track if we've started the deck
   const [favorites, setFavorites] = useState<number[]>([]);
   const [answered, setAnswered] = useState<number[]>([]);
   const [xp, setXp] = useState(0);
@@ -144,10 +141,8 @@ export default function CategoryPage() {
   useEffect(() => {
     // Initialize cards based on category
     if (category) {
-      // For Twilight Tides, use extended questions
-      const questions = id === 'twilight' 
-        ? [...extendedQuestions]
-        : [...category.sampleQuestions];
+      // For demo purposes, use extended questions for all categories
+      const questions = [...extendedQuestions];
       
       // Shuffle the questions if needed
       setCards(questions);
@@ -195,80 +190,13 @@ export default function CategoryPage() {
     );
   }
   
-  // Function to get color classes based on category id
-  function getCategoryColors(id: string) {
-    switch(id) {
-      case 'twilight':
-        return {
-          bg: 'bg-pink-500',
-          bgLight: 'bg-pink-100',
-          text: 'text-pink-500',
-          border: 'border-pink-300',
-          gradientFrom: 'from-pink-300',
-          gradientTo: 'to-pink-500'
-        };
-      case 'lovers':
-        return {
-          bg: 'bg-purple-500',
-          bgLight: 'bg-purple-100',
-          text: 'text-purple-500',
-          border: 'border-purple-300',
-          gradientFrom: 'from-purple-300',
-          gradientTo: 'to-purple-500'
-        };
-      case 'sunlit':
-        return {
-          bg: 'bg-yellow-400',
-          bgLight: 'bg-yellow-100',
-          text: 'text-yellow-500',
-          border: 'border-yellow-300',
-          gradientFrom: 'from-yellow-300',
-          gradientTo: 'to-yellow-500'
-        };
-      case 'brainstorm':
-        return {
-          bg: 'bg-orange-400',
-          bgLight: 'bg-orange-100',
-          text: 'text-orange-500',
-          border: 'border-orange-300',
-          gradientFrom: 'from-orange-300',
-          gradientTo: 'to-orange-500'
-        };
-      case 'woodland':
-        return {
-          bg: 'bg-green-400',
-          bgLight: 'bg-green-100',
-          text: 'text-green-500',
-          border: 'border-green-300',
-          gradientFrom: 'from-green-300',
-          gradientTo: 'to-green-500'
-        };
-      case 'mirror':
-        return {
-          bg: 'bg-blue-400',
-          bgLight: 'bg-blue-100',
-          text: 'text-blue-500',
-          border: 'border-blue-300',
-          gradientFrom: 'from-blue-300',
-          gradientTo: 'to-blue-500'
-        };
-      default:
-        return {
-          bg: 'bg-gray-500',
-          bgLight: 'bg-gray-100',
-          text: 'text-gray-500',
-          border: 'border-gray-300',
-          gradientFrom: 'from-gray-300',
-          gradientTo: 'to-gray-500'
-        };
-    }
-  }
-  
-  const colors = getCategoryColors(id);
-  
   // Handle card actions
   const handleFlip = () => {
     setIsFlipped(true);
+    // Mark that we've started the deck - subsequent cards won't need tapping
+    if (!hasStarted) {
+      setHasStarted(true);
+    }
   };
   
   const handleFavorite = () => {
@@ -290,11 +218,18 @@ export default function CategoryPage() {
   };
   
   const handleNext = () => {
-    setIsFlipped(false);
     // Add a slight delay before showing the next card
     setTimeout(() => {
       setCurrentQuestionIndex((prev) => (prev + 1) % cards.length);
+      // Automatically show the next question without requiring a tap
+      // Only auto-flip if we've already started the deck
+      if (hasStarted) {
+        setIsFlipped(true);
+      }
     }, 300);
+    
+    // First flip the current card back
+    setIsFlipped(false);
   };
   
   const handleShuffle = () => {
@@ -311,6 +246,7 @@ export default function CategoryPage() {
     setCards(shuffledCards);
     setCurrentQuestionIndex(0);
     setIsFlipped(false);
+    setHasStarted(false); // Reset the started state, so first card needs tap again
     
     // Animation effect
     setTimeout(() => {
@@ -323,169 +259,188 @@ export default function CategoryPage() {
     ? Math.round((answered.length / cards.length) * 100) 
     : 0;
   
-  // Only show card interface for Twilight Tides category
-  const showCardInterface = id === 'twilight';
+  // Get background styles based on category
+  function getCategoryBackground(id: string) {
+    switch(id) {
+      case 'twilight':
+        return "bg-gradient-to-br from-pink-900 via-purple-900 to-indigo-900";
+      case 'lovers':
+        return "bg-gradient-to-br from-purple-900 via-pink-900 to-red-900";
+      case 'sunlit':
+        return "bg-gradient-to-br from-yellow-600 via-orange-700 to-red-800";
+      case 'brainstorm':
+        return "bg-gradient-to-br from-orange-700 via-amber-800 to-yellow-900";
+      case 'woodland':
+        return "bg-gradient-to-br from-green-800 via-emerald-900 to-teal-900";
+      case 'mirror':
+        return "bg-gradient-to-br from-blue-800 via-indigo-900 to-violet-900";
+      default:
+        return "bg-gradient-to-br from-gray-800 via-gray-900 to-black";
+    }
+  }
+  
+  const backgroundClass = getCategoryBackground(id);
   
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-      className="flex-grow"
-    >
-      <div className={`h-56 md:h-64 overflow-hidden relative ${colors.bgLight}`}>
+    <div className={`min-h-screen ${backgroundClass} bg-fixed overflow-hidden`}>
+      {/* Background Image with overlay */}
+      <div className="fixed inset-0 z-0">
         <img 
           src={category.imageUrl} 
           alt={category.name} 
-          className="w-full h-full object-cover opacity-80"
+          className="w-full h-full object-cover opacity-30"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 w-full p-6">
-          <h1 className="font-accent text-4xl font-bold text-white drop-shadow-md">{category.name}</h1>
-          <p className="text-white/80 drop-shadow-md">{category.subtitle}</p>
-        </div>
-        <Button 
-          variant="ghost" 
-          className="absolute top-4 left-4 text-white bg-black/20 hover:bg-black/30"
-          onClick={() => navigate("/")}
-        >
-          <ArrowLeft className="mr-2 h-4 w-4" /> Back
-        </Button>
+        <div className="absolute inset-0 bg-black/40"></div>
       </div>
       
-      <div className="container mx-auto px-4 py-8">
-        {showCardInterface ? (
-          <>
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
-              <div className="max-w-xl">
-                <h2 className={`text-2xl font-semibold mb-2 ${colors.text}`}>Let's start the conversation</h2>
-                <p className="text-gray-600 mb-4 md:mb-0">
-                  Take turns drawing cards and answering questions to spark meaningful conversations.
-                </p>
-              </div>
-              
-              <div className="flex items-center space-x-2 bg-gray-50 rounded-full px-4 py-2">
-                <div className={`h-3 w-3 rounded-full ${colors.bg}`}></div>
-                <span className="text-sm font-medium">
-                  {xp} XP earned
-                </span>
-              </div>
-            </div>
-            
-            <div className="mb-8">
-              <div className="h-2 bg-gray-100 rounded-full w-full mb-1">
-                <div 
-                  className={`h-2 rounded-full bg-gradient-to-r ${colors.gradientFrom} ${colors.gradientTo}`} 
-                  style={{ width: `${progressPercentage}%` }}
-                ></div>
-              </div>
-              <div className="flex justify-between text-xs text-gray-500">
-                <span>{answered.length} answered</span>
-                <span>{cards.length} total</span>
-              </div>
-            </div>
-            
-            <div className="relative mb-10">
-              {/* Stack of cards (background decorative cards) */}
-              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-11/12 h-60 rounded-2xl bg-gray-100 rotate-1"></div>
-              <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-11/12 h-60 rounded-2xl bg-gray-50 -rotate-1"></div>
-              
-              {/* Active card */}
-              <motion.div
-                animate={shuffle ? { 
-                  rotate: [-1, 1, -1, 1, 0],
-                  x: [-10, 10, -5, 5, 0], 
-                } : {}}
-                transition={{ duration: 0.5 }}
-              >
-                {cards.length > 0 && (
-                  <QuestionCard
-                    question={cards[currentQuestionIndex]}
-                    colors={colors}
-                    isFlipped={isFlipped}
-                    onFlip={handleFlip}
-                    isFavorite={favorites.includes(currentQuestionIndex)}
-                    onFavorite={handleFavorite}
-                    isAnswered={answered.includes(currentQuestionIndex)}
-                    onAnswer={handleAnswer}
-                    onNext={handleNext}
-                  />
-                )}
-              </motion.div>
-            </div>
-            
-            <div className="flex justify-center">
-              <Button 
-                className={`px-6 py-2 rounded-full ${colors.bg} hover:opacity-90 text-white flex items-center`}
-                onClick={handleShuffle}
-              >
-                <Shuffle className="mr-2 h-4 w-4" />
-                Shuffle & Draw New Cards
-              </Button>
-            </div>
-            
-            {favorites.length > 0 && (
-              <div className="mt-12">
-                <h3 className={`text-xl font-medium mb-4 ${colors.text}`}>
-                  Your Favorite Questions ({favorites.length})
-                </h3>
-                <div className="grid md:grid-cols-2 gap-4">
-                  {favorites.map(index => (
-                    <Card key={index} className={`border ${colors.border} shadow-soft`}>
-                      <CardContent className="p-4">
-                        <div className="flex items-start gap-3">
-                          <Heart className="h-5 w-5 mt-1 text-red-500 fill-current" />
-                          <p className="text-gray-800">
-                            {cards[index]}
-                          </p>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              </div>
+      {/* Navigation */}
+      <nav className="relative z-10 pt-4 px-4 md:px-8 flex justify-between items-center">
+        <Button 
+          variant="ghost" 
+          className="text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm"
+          onClick={() => navigate("/")}
+        >
+          <Home className="mr-2 h-4 w-4" /> Home
+        </Button>
+        
+        <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 text-white">
+          <div className="h-3 w-3 rounded-full bg-purple-400"></div>
+          <span className="text-sm font-medium">
+            {xp} XP earned
+          </span>
+        </div>
+      </nav>
+      
+      {/* Content */}
+      <div className="relative z-10 container mx-auto px-4 pt-8 pb-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <h1 className="font-accent text-5xl md:text-6xl font-bold text-white drop-shadow-lg mb-2">
+            {category.name}
+          </h1>
+          <p className="text-white/80 text-lg md:text-xl drop-shadow-md max-w-2xl mx-auto">
+            {category.subtitle}
+          </p>
+        </motion.div>
+        
+        {/* Progress bar */}
+        <div className="mb-8 max-w-md mx-auto">
+          <div className="h-2 bg-white/10 backdrop-blur-sm rounded-full w-full mb-1">
+            <div 
+              className="h-2 rounded-full bg-gradient-to-r from-purple-400 to-pink-400" 
+              style={{ width: `${progressPercentage}%` }}
+            ></div>
+          </div>
+          <div className="flex justify-between text-xs text-white/70">
+            <span>{answered.length} answered</span>
+            <span>{cards.length} total</span>
+          </div>
+        </div>
+        
+        {/* Card Stack */}
+        <div className="relative mb-10 perspective-1500">
+          {/* Stack of cards (background decorative cards) */}
+          <motion.div 
+            className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 w-[90%] max-w-md h-72 rounded-2xl bg-white/80 backdrop-blur-sm rotate-3 shadow-xl"
+            initial={{ y: 0 }}
+            animate={shuffle ? { 
+              y: [0, -20, 0],
+              rotate: [3, -2, 3],
+              scale: [1, 0.98, 1]
+            } : {}}
+            transition={{ duration: 0.8 }}
+            style={{ transformStyle: 'preserve-3d', transform: 'translateZ(-40px)' }}
+          ></motion.div>
+          
+          <motion.div 
+            className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-[95%] max-w-md h-76 rounded-2xl bg-white/85 backdrop-blur-sm -rotate-2 shadow-xl"
+            initial={{ y: 0 }}
+            animate={shuffle ? { 
+              y: [0, -30, 0],
+              rotate: [-2, 4, -2],
+              scale: [1, 0.95, 1]
+            } : {}}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            style={{ transformStyle: 'preserve-3d', transform: 'translateZ(-20px)' }}
+          ></motion.div>
+          
+          {/* Active card */}
+          <motion.div
+            animate={shuffle ? { 
+              y: [0, -40, 0],
+              rotateZ: [-1, 3, -2, 1, 0],
+              rotateX: [0, 5, 0],
+              rotateY: [0, -5, 5, 0],
+              scale: [1, 0.9, 1.02, 1],
+            } : {}}
+            transition={{ 
+              duration: 1, 
+              ease: "easeInOut"
+            }}
+            style={{ 
+              transformStyle: 'preserve-3d',
+              transform: 'translateZ(0px)'
+            }}
+          >
+            {cards.length > 0 && (
+              <QuestionCard
+                question={cards[currentQuestionIndex]}
+                isFlipped={isFlipped}
+                onFlip={handleFlip}
+                isFavorite={favorites.includes(currentQuestionIndex)}
+                onFavorite={handleFavorite}
+                isAnswered={answered.includes(currentQuestionIndex)}
+                onAnswer={handleAnswer}
+                onNext={handleNext}
+              />
             )}
-          </>
-        ) : (
-          <>
-            <h2 className={`text-2xl font-semibold mb-6 ${colors.text}`}>{category.subtitle}</h2>
-            <p className="text-gray-600 mb-8 max-w-3xl">
-              {category.description}
-            </p>
-            
-            <h3 className="text-xl font-medium mb-4">Let's start the conversation</h3>
-            
-            <div className="grid md:grid-cols-2 gap-6 mb-10">
-              {[1, 2, 3, 4, 5].map(num => (
-                <Card key={num} className={`border ${colors.border} shadow-soft`}>
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div className={`mt-1 p-2 rounded-full ${colors.bgLight}`}>
-                        <Star className={`h-5 w-5 ${colors.text}`} />
-                      </div>
-                      <div>
-                        <p className="font-medium text-gray-800">
-                          {category.sampleQuestions[num-1] || "What's your favorite way to spend a Saturday morning?"}
-                        </p>
-                      </div>
+          </motion.div>
+        </div>
+        
+        {/* Shuffle button */}
+        <div className="flex justify-center">
+          <Button 
+            className="px-6 py-6 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 hover:opacity-90 text-white flex items-center shadow-lg"
+            onClick={handleShuffle}
+          >
+            <Shuffle className="mr-2 h-5 w-5" />
+            Shuffle & Draw New Cards
+          </Button>
+        </div>
+        
+        {/* Favorites section */}
+        {favorites.length > 0 && (
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-16"
+          >
+            <h3 className="text-xl font-medium mb-6 text-white text-center">
+              Your Favorite Questions ({favorites.length})
+            </h3>
+            <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+              {favorites.map(index => (
+                <Card key={index} className="border-0 shadow-md bg-white/90 backdrop-blur-sm">
+                  <CardContent className="p-4">
+                    <div className="flex items-start gap-3">
+                      <Heart className="h-5 w-5 mt-1 text-red-500 fill-current flex-shrink-0" />
+                      <p className="text-gray-800">
+                        {cards[index]}
+                      </p>
                     </div>
                   </CardContent>
                 </Card>
               ))}
             </div>
-            
-            <div className="text-center">
-              <Button 
-                className={`px-8 py-6 rounded-full ${colors.bg} hover:opacity-90 text-white`}
-              >
-                Show me more questions
-              </Button>
-            </div>
-          </>
+          </motion.div>
         )}
       </div>
-    </motion.div>
+    </div>
   );
 }
