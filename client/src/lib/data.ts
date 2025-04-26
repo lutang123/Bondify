@@ -49,7 +49,7 @@ export const categories: Category[] = [
   },
   {
     id: "sunlit",
-    name: "Sunlit Summit",
+    name: "Sunlit Social",
     subtitle: "Stranger Things & Friend Flings",
     description: "In a bar or meetup and everyone's glued to their phones? This category brings laughter, party mode games, and \"bond with a stranger\" challenges.",
     quote: "Friendship speedrun: initiate in 3... 2... 1...",
