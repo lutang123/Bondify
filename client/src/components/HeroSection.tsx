@@ -54,7 +54,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="font-accent text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-purple-400 via-pink-400 to-orange-300 gradient-text leading-tight"
+            className="font-accent text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-purple-300 via-pink-300 to-orange-200 gradient-text leading-tight"
           >
             The Playful Path to Deeper Connections
           </motion.h1>
@@ -75,7 +75,7 @@ export default function HeroSection() {
             className="relative mx-auto max-w-md mb-16 animate-float"
             style={{ animationDuration: "6s" }}
           >
-            <div className="speech-bubble text-white p-5 shadow-bubble bg-gradient-to-r from-purple-400 to-pink-400 rounded-3xl">
+            <div className="speech-bubble text-white p-5 shadow-bubble bg-gradient-to-r from-purple-300 to-pink-300 rounded-3xl">
               <p className="font-accent text-xl text-center drop-shadow-sm">
                 Let's bondify with meaningful conversations, even ChatGPT feels jealous.
               </p>

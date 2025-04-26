@@ -10,23 +10,23 @@ interface CategoryCardProps {
 }
 
 export default function CategoryCard({ category, delay = 0 }: CategoryCardProps) {
-  // Function to get gradient based on category id - softer pastel colors
+  // Function to get gradient based on category id - even lighter, softer pastel colors
   function getButtonGradient(id: string): string {
     switch(id) {
       case 'twilight':
-        return 'bg-gradient-to-r from-pink-400 to-pink-500';
+        return 'bg-gradient-to-r from-pink-300 to-pink-400';
       case 'lovers':
-        return 'bg-gradient-to-r from-purple-400 to-purple-500';
+        return 'bg-gradient-to-r from-purple-300 to-purple-400';
       case 'sunlit':
-        return 'bg-gradient-to-r from-yellow-300 to-yellow-400';
+        return 'bg-gradient-to-r from-yellow-200 to-yellow-300';
       case 'brainstorm':
-        return 'bg-gradient-to-r from-orange-300 to-orange-400';
+        return 'bg-gradient-to-r from-orange-200 to-orange-300';
       case 'woodland':
-        return 'bg-gradient-to-r from-green-300 to-green-400';
+        return 'bg-gradient-to-r from-green-200 to-green-300';
       case 'mirror':
-        return 'bg-gradient-to-r from-blue-300 to-blue-400';
+        return 'bg-gradient-to-r from-blue-200 to-blue-300';
       default:
-        return 'bg-gradient-to-r from-purple-400 to-pink-400';
+        return 'bg-gradient-to-r from-purple-300 to-pink-300';
     }
   }
   const {
@@ -39,23 +39,23 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
     isPremium
   } = category;
 
-  // Function to get overlay gradient based on category id - softer pastel colors with reduced opacity
+  // Function to get overlay gradient based on category id - even lighter, softer pastel colors with gentle opacity
   function getOverlayGradient(id: string): string {
     switch(id) {
       case 'twilight':
-        return 'bg-gradient-to-t from-pink-400/60 to-transparent';
+        return 'bg-gradient-to-t from-pink-300/50 to-transparent';
       case 'lovers':
-        return 'bg-gradient-to-t from-purple-400/60 to-transparent';
+        return 'bg-gradient-to-t from-purple-300/50 to-transparent';
       case 'sunlit':
-        return 'bg-gradient-to-t from-yellow-300/60 to-transparent';
+        return 'bg-gradient-to-t from-yellow-200/50 to-transparent';
       case 'brainstorm':
-        return 'bg-gradient-to-t from-orange-300/60 to-transparent';
+        return 'bg-gradient-to-t from-orange-200/50 to-transparent';
       case 'woodland':
-        return 'bg-gradient-to-t from-green-300/60 to-transparent';
+        return 'bg-gradient-to-t from-green-200/50 to-transparent';
       case 'mirror':
-        return 'bg-gradient-to-t from-blue-300/60 to-transparent';
+        return 'bg-gradient-to-t from-blue-200/50 to-transparent';
       default:
-        return 'bg-gradient-to-t from-gray-400/60 to-transparent';
+        return 'bg-gradient-to-t from-gray-300/50 to-transparent';
     }
   }
 
@@ -73,8 +73,8 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
           className="w-full h-full object-cover object-center" 
           loading="lazy"
         />
-        {/* White overlay to soften the image - 15% opacity */}
-        <div className="absolute inset-0 bg-white/15"></div>
+        {/* White overlay to soften the image - 20% opacity */}
+        <div className="absolute inset-0 bg-white/20"></div>
         {/* Color gradient overlay on top of white overlay */}
         <div className={`absolute inset-0 ${getOverlayGradient(id)}`}></div>
         <div className="absolute bottom-0 left-0 w-full p-4">
@@ -86,7 +86,7 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
         <div className="flex justify-between items-center mb-3">
           <h4 className="font-semibold text-gray-700 text-sm">{subtitle}</h4>
           {isPremium && (
-            <span className="px-2 py-1 bg-purple-100 text-purple-500 text-xs rounded-full flex items-center">
+            <span className="px-2 py-1 bg-purple-50 text-purple-400 text-xs rounded-full flex items-center">
               <Lock className="h-3 w-3 mr-1" />
               Premium
             </span>
