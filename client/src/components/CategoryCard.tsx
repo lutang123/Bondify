@@ -84,6 +84,7 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
       
       <div className="p-6">
         <div className="flex justify-between items-center mb-3">
+          {/* Tagline - clearer connection to main title */}
           <h4 className="font-semibold text-gray-700 text-sm">{subtitle}</h4>
           {isPremium && (
             <span className="px-2 py-1 bg-purple-50 text-purple-400 text-xs rounded-full flex items-center">
@@ -92,15 +93,20 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
             </span>
           )}
         </div>
-        {/* Main tagline with more emphasis */}
+        
+        {/* Hook/Prompt with emphasis */}
         <p className="text-gray-900 font-medium mb-3 text-base leading-snug">
           {description.split('.')[0]}.
         </p>
+        
+        {/* Description */}
         <p className="text-gray-600 mb-4 text-sm">
           {description.split('.').slice(1).join('.')}
         </p>
+        
+        {/* Slogan/Tagline without quote marks */}
         <p className="italic text-sm text-gray-500 mb-4 border-l-2 pl-3 border-gray-200">
-          "{quote}"
+          {quote}
         </p>
         <Link 
           href={`/category/${id}`} 
