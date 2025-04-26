@@ -16,7 +16,7 @@ export const categories: Category[] = [
     subtitle: "First Date Fuel",
     description: "Don't believe in love at first sight? Try this. Romantic connection starters, deep cuts, and curveballs to spark unforgettable first dates.",
     quote: "Because 'So what do you do?' should be illegal on a first date.",
-    imageUrl: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1553342385-111fd6bc6ab3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200&q=80",
     sampleQuestions: [
       "What's something you're passionate about that most people don't know?",
       "If we could teleport anywhere for our next date, where would you choose?",
@@ -31,7 +31,7 @@ export const categories: Category[] = [
     subtitle: "After Dark (18+)",
     description: "Curious about your partner's spicy secrets? This premium deck unlocks tasteful, vulnerable, and playful intimacy.",
     quote: "Unlock the secret deck couples can't stop talking about.",
-    imageUrl: "https://images.unsplash.com/photo-1505483531331-fc3cf89fd382?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1515268064940-5724a68fcee3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200&q=80",
     isPremium: true,
     sampleQuestions: [
       "What's one fantasy you've never shared with me before?",
@@ -47,7 +47,7 @@ export const categories: Category[] = [
     subtitle: "Stranger Things & Friend Flings",
     description: "In a bar or meetup and everyone's glued to their phones? This category brings laughter, party mode games, and \"bond with a stranger\" challenges.",
     quote: "Friendship speedrun: initiate in 3... 2... 1...",
-    imageUrl: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1506869640319-fe1a24fd76dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200&q=80",
     sampleQuestions: [
       "What's the strangest talent you have that few people know about?",
       "If you could instantly master one skill, what would it be and why?",
@@ -62,7 +62,7 @@ export const categories: Category[] = [
     subtitle: "Mind Games & Icebreakers",
     description: "Up for some mental gymnastics? Explore fun riddles, what-ifs, ethical dilemmas, and party-style debate prompts.",
     quote: "Pub quiz meets party game meets deep-thought detour.",
-    imageUrl: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1504805572947-34fad45aed93?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200&q=80",
     sampleQuestions: [
       "Would you rather have unlimited money but no friends, or be broke with amazing friends?",
       "If you could know the absolute truth to one question, what would you ask?",
@@ -77,7 +77,7 @@ export const categories: Category[] = [
     subtitle: "Kid Bond: Talk Like Tiny Humans",
     description: "Got a tiny human nearby who thinks like a philosopher trapped in a jellybean body? Bond with kids (or teens) in ways that matter.",
     quote: "Because 'How was school?' always gets the same answer.",
-    imageUrl: "https://images.unsplash.com/photo-1517164850305-99a3e65bb47e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1511497584788-876760111969?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200&q=80",
     sampleQuestions: [
       "If you could have any superpower, what would it be and what's the first thing you'd do?",
       "What's the funniest thing that happened at school this week?",
@@ -92,7 +92,7 @@ export const categories: Category[] = [
     subtitle: "Solo Reflection",
     description: "Just vibing solo? This is your daily conversation with the realest person you know—yourself. Includes gratitude check-ins and personal growth prompts.",
     quote: "Less therapy. More XP for your soul.",
-    imageUrl: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1503435980610-a51f3ddfee50?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200&q=80",
     sampleQuestions: [
       "What's something you're proud of that you rarely talk about?",
       "If you could write a note to your younger self, what would you say?",
