@@ -62,6 +62,10 @@ export default function Header() {
             </DropdownMenuContent>
           </DropdownMenu>
           
+          <Link href="/weekly-packs" className={`font-medium ${location === "/weekly-packs" ? "text-[hsl(var(--lovers))]" : "text-gray-700 hover:text-[hsl(var(--lovers))] hover:underline hover:underline-offset-4 hover:decoration-[hsl(var(--lovers))]"} transition-colors`}>
+              Weekly Packs
+          </Link>
+          
           <Link href="/about" className={`font-medium ${location === "/about" ? "text-[hsl(var(--lovers))]" : "text-gray-700 hover:text-[hsl(var(--lovers))] hover:underline hover:underline-offset-4 hover:decoration-[hsl(var(--lovers))]"} transition-colors`}>
               About
           </Link>
@@ -102,6 +106,10 @@ export default function Header() {
               </Link>
             ))}
             
+            <Link href="/weekly-packs" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-[hsl(var(--lovers))] hover:bg-[hsl(var(--lovers))/10]">
+              Weekly Packs
+            </Link>
+
             <Link href="/about" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-[hsl(var(--lovers))] hover:bg-[hsl(var(--lovers))/10]">
               About
             </Link>

@@ -9,6 +9,7 @@ import Home from "@/pages/Home";
 import About from "@/pages/About";
 import CategoryPage from "@/pages/CategoryPage";
 import JoinClub from "@/pages/JoinClub";
+import WeeklyPacks from "@/pages/WeeklyPacks";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -21,6 +22,7 @@ function Router() {
         <Route path="/about" component={About} />
         <Route path="/category/:id" component={CategoryPage} />
         <Route path="/join-club" component={JoinClub} />
+        <Route path="/weekly-packs" component={WeeklyPacks} />
         <Route component={NotFound} />
       </Switch>
       <Footer />
