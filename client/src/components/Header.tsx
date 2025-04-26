@@ -27,13 +27,13 @@ export default function Header() {
         </Link>
         
         <nav className="hidden md:flex items-center md:space-x-4 lg:space-x-8">
-          <Link href="/" className={`font-medium text-sm md:text-sm lg:text-base ${location === "/" ? "text-[hsl(var(--lovers))]" : "text-gray-700 hover:text-[hsl(var(--lovers))] hover:underline hover:underline-offset-4 hover:decoration-[hsl(var(--lovers))]"} transition-colors`}>
+          <Link href="/" className={`font-medium text-sm md:text-sm lg:text-base ${location === "/" ? "text-[hsl(var(--lovers))]" : "text-gray-700 hover:text-[hsl(var(--lovers))] hover:bg-[hsl(var(--lovers))]/10 px-2 py-1 rounded-md"} transition-colors`}>
               Home
           </Link>
           
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="font-medium text-sm md:text-sm lg:text-base text-gray-700 hover:text-white hover:bg-[#F8A0A0] border-none hover:border-none transition-colors rounded-full px-2 md:px-3 lg:px-4">
+              <Button variant="ghost" className="font-medium text-sm md:text-sm lg:text-base text-gray-700 hover:text-[hsl(var(--lovers))] hover:bg-[hsl(var(--lovers))]/10 border-none hover:border-none transition-colors rounded-md px-2 md:px-3 lg:px-4">
                 Categories
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
@@ -62,11 +62,11 @@ export default function Header() {
             </DropdownMenuContent>
           </DropdownMenu>
           
-          <Link href="/weekly-packs" className={`font-medium text-sm md:text-sm lg:text-base ${location === "/weekly-packs" ? "text-[hsl(var(--lovers))]" : "text-gray-700 hover:text-[hsl(var(--lovers))] hover:underline hover:underline-offset-4 hover:decoration-[hsl(var(--lovers))]"} transition-colors`}>
+          <Link href="/weekly-packs" className={`font-medium text-sm md:text-sm lg:text-base ${location === "/weekly-packs" ? "text-[hsl(var(--lovers))]" : "text-gray-700 hover:text-[hsl(var(--lovers))] hover:bg-[hsl(var(--lovers))]/10 px-2 py-1 rounded-md"} transition-colors`}>
               Weekly Packs
           </Link>
           
-          <Link href="/about" className={`font-medium text-sm md:text-sm lg:text-base ${location === "/about" ? "text-[hsl(var(--lovers))]" : "text-gray-700 hover:text-[hsl(var(--lovers))] hover:underline hover:underline-offset-4 hover:decoration-[hsl(var(--lovers))]"} transition-colors`}>
+          <Link href="/about" className={`font-medium text-sm md:text-sm lg:text-base ${location === "/about" ? "text-[hsl(var(--lovers))]" : "text-gray-700 hover:text-[hsl(var(--lovers))] hover:bg-[hsl(var(--lovers))]/10 px-2 py-1 rounded-md"} transition-colors`}>
               About
           </Link>
           

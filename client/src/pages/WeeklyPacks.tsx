@@ -147,7 +147,7 @@ export default function WeeklyPacks() {
                     )}
                     
                     <div className="mt-6 flex justify-center">
-                      <Button className="bg-gradient-to-r from-[hsl(var(--lovers))] to-[hsl(var(--twilight))] text-white">
+                      <Button className="bg-gradient-to-r from-[hsl(var(--lovers))] to-[hsl(var(--twilight))] text-white hover:shadow-md transition-all">
                         Unlock Premium Pack
                       </Button>
                     </div>
@@ -169,7 +169,10 @@ export default function WeeklyPacks() {
               <div className="flex items-center justify-between mb-4 md:mb-8">
                 <h2 className="text-xl md:text-2xl font-bold text-gray-800">Previous Packs</h2>
                 {previousPacksQuery.data && previousPacksQuery.data.length > 3 && (
-                  <Button variant="ghost" className="text-[hsl(var(--lovers))] text-sm md:text-base">
+                  <Button 
+                    variant="ghost" 
+                    className="text-gray-700 hover:text-[hsl(var(--lovers))] hover:bg-[hsl(var(--lovers))]/10 text-sm md:text-base rounded-md transition-colors"
+                  >
                     View all
                   </Button>
                 )}
@@ -206,7 +209,11 @@ export default function WeeklyPacks() {
                           </Avatar>
                           <span className="ml-2 text-sm text-gray-600">{pack.expertName}</span>
                         </div>
-                        <Button variant="ghost" size="sm" className="text-[hsl(var(--lovers))]">
+                        <Button 
+                          variant="ghost" 
+                          size="sm" 
+                          className="text-gray-700 hover:text-[hsl(var(--lovers))] hover:bg-[hsl(var(--lovers))]/10 rounded-md transition-colors"
+                        >
                           View pack
                         </Button>
                       </div>
