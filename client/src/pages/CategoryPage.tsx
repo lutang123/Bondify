@@ -84,7 +84,7 @@ function QuestionCard({
             <Button 
               variant="ghost" 
               size="sm" 
-              className={`${isFavorite ? 'text-red-500' : 'text-gray-400'} hover:text-red-500 hover:bg-red-50`}
+              className={`${isFavorite ? 'text-red-500' : 'text-gray-600'} hover:text-red-500 hover:bg-red-50`}
               onClick={(e) => {
                 e.stopPropagation();
                 onFavorite();
@@ -96,7 +96,7 @@ function QuestionCard({
             <Button 
               variant="ghost" 
               size="sm" 
-              className={`${isAnswered ? 'text-purple-500 bg-purple-50' : 'text-gray-400 hover:bg-gray-100'}`}
+              className={`${isAnswered ? 'text-purple-500 bg-purple-50' : 'text-gray-600 hover:bg-purple-50 hover:text-purple-500'}`}
               onClick={(e) => {
                 e.stopPropagation();
                 onAnswer();
