@@ -10,25 +10,6 @@ interface CategoryCardProps {
 }
 
 export default function CategoryCard({ category, delay = 0 }: CategoryCardProps) {
-  // Function to get gradient based on category id - even lighter, softer pastel colors
-  function getButtonGradient(id: string): string {
-    switch(id) {
-      case 'twilight':
-        return 'bg-gradient-to-r from-pink-300 to-pink-400';
-      case 'lovers':
-        return 'bg-gradient-to-r from-purple-300 to-purple-400';
-      case 'sunlit':
-        return 'bg-gradient-to-r from-yellow-200 to-yellow-300';
-      case 'brainstorm':
-        return 'bg-gradient-to-r from-orange-200 to-orange-300';
-      case 'woodland':
-        return 'bg-gradient-to-r from-green-200 to-green-300';
-      case 'mirror':
-        return 'bg-gradient-to-r from-blue-200 to-blue-300';
-      default:
-        return 'bg-gradient-to-r from-purple-300 to-pink-300';
-    }
-  }
   const {
     id,
     name,
@@ -128,7 +109,7 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
         </div>
         <Link 
           href={`/category/${id}`} 
-          className={`block w-full py-3 rounded-full ${getButtonGradient(id)} text-white text-center font-medium hover:shadow-md transition-all`}
+          className="block w-full py-3 rounded-full bg-gradient-to-r from-purple-300 to-pink-300 text-white text-center font-medium hover:shadow-md transition-all"
         >
           Start Your Journey
         </Link>
