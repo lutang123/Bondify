@@ -20,9 +20,62 @@ export default function CategoryPage() {
     );
   }
   
-  const bgColorClass = `bg-${id}`;
-  const textColorClass = `text-${id}`;
-  const borderColorClass = `border-${id}`;
+  // Function to get color classes based on category id
+  function getCategoryColors(id: string) {
+    switch(id) {
+      case 'twilight':
+        return {
+          bg: 'bg-pink-500',
+          bgLight: 'bg-pink-100',
+          text: 'text-pink-500',
+          border: 'border-pink-300'
+        };
+      case 'lovers':
+        return {
+          bg: 'bg-purple-500',
+          bgLight: 'bg-purple-100',
+          text: 'text-purple-500',
+          border: 'border-purple-300'
+        };
+      case 'sunlit':
+        return {
+          bg: 'bg-yellow-400',
+          bgLight: 'bg-yellow-100',
+          text: 'text-yellow-500',
+          border: 'border-yellow-300'
+        };
+      case 'brainstorm':
+        return {
+          bg: 'bg-orange-400',
+          bgLight: 'bg-orange-100',
+          text: 'text-orange-500',
+          border: 'border-orange-300'
+        };
+      case 'woodland':
+        return {
+          bg: 'bg-green-400',
+          bgLight: 'bg-green-100',
+          text: 'text-green-500',
+          border: 'border-green-300'
+        };
+      case 'mirror':
+        return {
+          bg: 'bg-blue-400',
+          bgLight: 'bg-blue-100',
+          text: 'text-blue-500',
+          border: 'border-blue-300'
+        };
+      default:
+        return {
+          bg: 'bg-gray-500',
+          bgLight: 'bg-gray-100',
+          text: 'text-gray-500',
+          border: 'border-gray-300'
+        };
+    }
+  }
+  
+  const colors = getCategoryColors(id);
   
   return (
     <motion.div
@@ -32,13 +85,13 @@ export default function CategoryPage() {
       transition={{ duration: 0.5 }}
       className="flex-grow"
     >
-      <div className={`h-40 overflow-hidden relative ${bgColorClass}/10`}>
+      <div className={`h-40 overflow-hidden relative ${colors.bgLight}`}>
         <img 
           src={category.imageUrl} 
           alt={category.name} 
           className="w-full h-full object-cover opacity-50"
         />
-        <div className={`absolute inset-0 bg-gradient-to-t from-${id}/80 to-transparent`}></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
         <div className="absolute bottom-0 left-0 w-full p-4">
           <h1 className="font-accent text-3xl font-bold text-white">{category.name}</h1>
         </div>
