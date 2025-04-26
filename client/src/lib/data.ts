@@ -1,8 +1,9 @@
-// Using relative URLs for local images instead of imports to avoid ESM errors
-const mirrorMeadowImage = "/src/assets/mirror_meadow.jpg";
-const twilightTidesImage = "/src/assets/twilight_tide.png";
-const loversLanternImage = "/src/assets/lover_lantern.png";
-const woodlandWonderImage = "/src/assets/woodland_wonder.png";
+// Use URLs for assets that will work in both development and production
+// No need for conditional paths since we're using the same structure
+const mirrorMeadowImage = "/assets/mirror_meadow.jpg";
+const twilightTidesImage = "/assets/twilight_tide.png";
+const loversLanternImage = "/assets/lover_lantern.png";
+const woodlandWonderImage = "/assets/woodland_wonder.png";
 
 export interface Category {
   id: string;

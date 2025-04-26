@@ -111,13 +111,13 @@ function QuestionCard({
 }: QuestionCardProps) {
   return (
     <div 
-      className={`w-full max-w-md h-72 mx-auto rounded-2xl perspective-1000 cursor-pointer ${isFlipped ? 'pointer-events-auto' : ''}`}
+      className="w-full max-w-md h-72 mx-auto rounded-2xl perspective-1000 cursor-pointer"
       onClick={isFlipped ? undefined : onFlip}
     >
-      <div className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
+      <div className={`relative w-full h-full transition-transform duration-700 preserve-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
         {/* Front of card */}
         <div 
-          className={`absolute inset-0 rounded-2xl flex flex-col items-center justify-center bg-white shadow-lg p-6 text-center backface-hidden ${isFlipped ? 'invisible' : ''}`}
+          className="absolute inset-0 rounded-2xl flex flex-col items-center justify-center bg-white shadow-lg p-6 text-center backface-hidden"
         >
           <div className="w-16 h-16 rounded-full bg-gradient-to-br from-green-400 to-teal-400 flex items-center justify-center mb-4">
             <span className="text-white text-xl font-bold">?</span>
