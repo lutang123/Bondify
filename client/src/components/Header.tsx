@@ -17,23 +17,23 @@ export default function Header() {
   return (
     <header className="sticky top-0 bg-white/95 backdrop-blur-sm z-50 shadow-sm">
       <div className="container mx-auto flex justify-between items-center px-4 py-3">
-        <Link href="/" className="flex items-center space-x-2">
+        <Link href="/" className="flex items-center space-x-2 shrink-0">
           <div className="w-10 h-10 rounded-full bg-gradient-to-r from-[hsl(var(--lovers))] to-[hsl(var(--twilight))] flex items-center justify-center">
             <span className="text-white font-accent font-bold text-xl">B</span>
           </div>
-          <span className="font-accent text-2xl font-semibold bg-gradient-to-r from-[hsl(var(--lovers))] to-[hsl(var(--twilight))] gradient-text">
+          <span className="font-accent text-2xl font-semibold bg-gradient-to-r from-[hsl(var(--lovers))] to-[hsl(var(--twilight))] gradient-text hidden sm:inline">
             Bondify
           </span>
         </Link>
         
-        <nav className="hidden md:flex items-center space-x-8">
-          <Link href="/" className={`font-medium ${location === "/" ? "text-[hsl(var(--lovers))]" : "text-gray-700 hover:text-[hsl(var(--lovers))] hover:underline hover:underline-offset-4 hover:decoration-[hsl(var(--lovers))]"} transition-colors`}>
+        <nav className="hidden md:flex items-center md:space-x-4 lg:space-x-8">
+          <Link href="/" className={`font-medium text-sm md:text-sm lg:text-base ${location === "/" ? "text-[hsl(var(--lovers))]" : "text-gray-700 hover:text-[hsl(var(--lovers))] hover:underline hover:underline-offset-4 hover:decoration-[hsl(var(--lovers))]"} transition-colors`}>
               Home
           </Link>
           
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="font-medium text-gray-700 hover:text-white hover:bg-[#F8A0A0] border-none hover:border-none transition-colors rounded-full px-4">
+              <Button variant="ghost" className="font-medium text-sm md:text-sm lg:text-base text-gray-700 hover:text-white hover:bg-[#F8A0A0] border-none hover:border-none transition-colors rounded-full px-2 md:px-3 lg:px-4">
                 Categories
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
@@ -62,15 +62,15 @@ export default function Header() {
             </DropdownMenuContent>
           </DropdownMenu>
           
-          <Link href="/weekly-packs" className={`font-medium ${location === "/weekly-packs" ? "text-[hsl(var(--lovers))]" : "text-gray-700 hover:text-[hsl(var(--lovers))] hover:underline hover:underline-offset-4 hover:decoration-[hsl(var(--lovers))]"} transition-colors`}>
+          <Link href="/weekly-packs" className={`font-medium text-sm md:text-sm lg:text-base ${location === "/weekly-packs" ? "text-[hsl(var(--lovers))]" : "text-gray-700 hover:text-[hsl(var(--lovers))] hover:underline hover:underline-offset-4 hover:decoration-[hsl(var(--lovers))]"} transition-colors`}>
               Weekly Packs
           </Link>
           
-          <Link href="/about" className={`font-medium ${location === "/about" ? "text-[hsl(var(--lovers))]" : "text-gray-700 hover:text-[hsl(var(--lovers))] hover:underline hover:underline-offset-4 hover:decoration-[hsl(var(--lovers))]"} transition-colors`}>
+          <Link href="/about" className={`font-medium text-sm md:text-sm lg:text-base ${location === "/about" ? "text-[hsl(var(--lovers))]" : "text-gray-700 hover:text-[hsl(var(--lovers))] hover:underline hover:underline-offset-4 hover:decoration-[hsl(var(--lovers))]"} transition-colors`}>
               About
           </Link>
           
-          <Link href="/join-club" className="font-medium px-5 py-2 rounded-full bg-gradient-to-r from-[hsl(var(--lovers))] to-[hsl(var(--twilight))] text-white hover:shadow-md transition-all">
+          <Link href="/join-club" className="font-medium text-sm md:text-sm lg:text-base px-3 md:px-4 lg:px-5 py-1.5 md:py-2 rounded-full bg-gradient-to-r from-[hsl(var(--lovers))] to-[hsl(var(--twilight))] text-white hover:shadow-md transition-all shrink-0">
               Join Bondify Club
           </Link>
         </nav>

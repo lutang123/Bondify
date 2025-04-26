@@ -60,11 +60,11 @@ export default function WeeklyPacks() {
     >
       <div className="container px-4 mx-auto">
         <div className="max-w-5xl mx-auto">
-          <header className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[hsl(var(--lovers))] to-[hsl(var(--twilight))] gradient-text">
+          <header className="text-center mb-8 md:mb-16">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[hsl(var(--lovers))] to-[hsl(var(--twilight))] gradient-text px-2">
               Weekly Expert-Curated Conversation Packs
             </h1>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
               Discover thoughtfully crafted conversation topics from relationship experts, 
               updated every week to spark meaningful connections.
             </p>
@@ -76,12 +76,12 @@ export default function WeeklyPacks() {
               <span className="ml-3 text-lg">Loading this week's conversation pack...</span>
             </div>
           ) : weeklyPackQuery.data ? (
-            <div className="mb-16">
-              <div className="flex items-center mb-4">
+            <div className="mb-8 md:mb-16">
+              <div className="flex flex-wrap items-center mb-4 gap-2">
                 <Badge variant="secondary" className="text-[hsl(var(--lovers))] bg-[hsl(var(--lovers))]/10">
                   This Week's Pack
                 </Badge>
-                <div className="ml-3 flex items-center text-gray-500 text-sm">
+                <div className="flex items-center text-gray-500 text-sm">
                   <Calendar className="w-4 h-4 mr-1" />
                   <span>Released on {formatDate(weeklyPackQuery.data.releaseDate)}</span>
                 </div>
@@ -166,16 +166,16 @@ export default function WeeklyPacks() {
           {/* Previous Packs */}
           {previousPacks && previousPacks.length > 0 && (
             <div>
-              <div className="flex items-center justify-between mb-8">
-                <h2 className="text-2xl font-bold text-gray-800">Previous Packs</h2>
+              <div className="flex items-center justify-between mb-4 md:mb-8">
+                <h2 className="text-xl md:text-2xl font-bold text-gray-800">Previous Packs</h2>
                 {previousPacksQuery.data && previousPacksQuery.data.length > 3 && (
-                  <Button variant="ghost" className="text-[hsl(var(--lovers))]">
+                  <Button variant="ghost" className="text-[hsl(var(--lovers))] text-sm md:text-base">
                     View all
                   </Button>
                 )}
               </div>
               
-              <div className="grid md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
                 {previousPacks.map(pack => (
                   <Card key={pack.id} className="border border-gray-100 hover:border-purple-200 transition-shadow hover:shadow-md">
                     <CardHeader className="pb-3">
@@ -218,14 +218,14 @@ export default function WeeklyPacks() {
           )}
           
           {/* Call to action */}
-          <div className="mt-20 text-center">
-            <h2 className="text-2xl font-bold mb-4">Want to Access All Exclusive Packs?</h2>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+          <div className="mt-12 md:mt-20 text-center px-4">
+            <h2 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">Want to Access All Exclusive Packs?</h2>
+            <p className="text-gray-600 mb-6 max-w-2xl mx-auto text-sm md:text-base">
               Join the Bondify Club today to unlock all weekly conversation packs, save your favorites, 
               and get access to premium features.
             </p>
             <Link href="/join-club">
-              <Button className="bg-gradient-to-r from-[hsl(var(--lovers))] to-[hsl(var(--twilight))] text-white px-8 py-6 text-lg">
+              <Button className="bg-gradient-to-r from-[hsl(var(--lovers))] to-[hsl(var(--twilight))] text-white px-6 py-4 md:px-8 md:py-6 text-base md:text-lg">
                 Join Bondify Club
               </Button>
             </Link>
