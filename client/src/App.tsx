@@ -21,7 +21,10 @@ function Router() {
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/about" component={About} />
+        {/* Legacy route - will be removed after migration */}
         <Route path="/category/:id" component={CategoryPage} />
+        {/* New dedicated category pages */}
+        <Route path="/twilight-tides" component={TwilightTidesPage} />
         <Route path="/join-club" component={JoinClub} />
         <Route path="/weekly-packs" component={WeeklyPacks} />
         <Route component={NotFound} />

@@ -66,6 +66,23 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
     }
   };
 
+  // Helper function to get the correct route based on category ID
+  const getCategoryRoute = (categoryId: string): string => {
+    switch(categoryId) {
+      case 'twilight':
+        return '/twilight-tides';
+      // Once we create other category pages, add their routes here
+      case 'lovers':
+      case 'sunlit': 
+      case 'brainstorm':
+      case 'woodland':
+      case 'mirror':
+      default:
+        // Temporarily fall back to the generic route until we create all dedicated pages
+        return `/category/${categoryId}`;
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -113,7 +130,7 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
           </div>
         </div>
         <Link 
-          href={`/category/${id}`} 
+          href={getCategoryRoute(id)} 
           className="block w-full py-3 rounded-full bg-gradient-to-r from-purple-300 to-pink-300 text-white text-center font-medium hover:shadow-md transition-all"
         >
           Start Your Journey
