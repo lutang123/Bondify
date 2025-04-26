@@ -13,10 +13,13 @@ import WeeklyPacks from "@/pages/WeeklyPacks";
 import TwilightTidesPage from "@/pages/TwilightTidesPage";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 
 function Router() {
   return (
     <div className="flex flex-col min-h-screen">
+      {/* ScrollToTop component will reset scroll position on route changes */}
+      <ScrollToTop />
       <Header />
       <Switch>
         <Route path="/" component={Home} />
