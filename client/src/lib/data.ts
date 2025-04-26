@@ -92,7 +92,7 @@ export const categories: Category[] = [
     subtitle: "Solo Reflection",
     description: "Just vibing solo? This is your daily conversation with the realest person you know—yourself. Includes gratitude check-ins and personal growth prompts.",
     quote: "Less therapy. More XP for your soul.",
-    imageUrl: "https://images.unsplash.com/photo-1503435980610-a51f3ddfee50?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200&q=80",
     sampleQuestions: [
       "What's something you're proud of that you rarely talk about?",
       "If you could write a note to your younger self, what would you say?",
