@@ -33,18 +33,18 @@ export default function HeroSection() {
     <section className="pt-10 md:pt-16 pb-24 relative overflow-hidden">
       {/* Decorative Elements with pastel colors */}
       <FloatingCircle 
-        className="absolute top-1/4 right-10 w-16 h-16 rounded-full bg-pink-300/10" 
+        className="absolute top-1/4 right-10 w-16 h-16 rounded-full bg-slate-200/10 backdrop-blur-sm" 
       />
       <FloatingCircle 
-        className="absolute top-1/3 left-10 w-12 h-12 rounded-full bg-purple-300/10"
+        className="absolute top-1/3 left-10 w-12 h-12 rounded-full bg-slate-300/10 backdrop-blur-sm"
         delay={0.5}
       />
       <FloatingCircle 
-        className="absolute bottom-1/4 right-1/4 w-20 h-20 rounded-full bg-orange-300/10"
+        className="absolute bottom-1/4 right-1/4 w-20 h-20 rounded-full bg-slate-100/10 backdrop-blur-sm"
         delay={1}
       />
       <FloatingCircle 
-        className="absolute bottom-1/3 left-1/3 w-8 h-8 rounded-full bg-blue-300/10"
+        className="absolute bottom-1/3 left-1/3 w-8 h-8 rounded-full bg-slate-200/10 backdrop-blur-sm"
         delay={1.5}
       />
       
@@ -54,7 +54,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="font-accent text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-purple-300 via-pink-300 to-orange-200 gradient-text leading-tight"
+            className="font-accent text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-slate-700 via-slate-600 to-slate-800 gradient-text leading-tight"
           >
             The Playful Path to Deeper Connections
           </motion.h1>
@@ -75,8 +75,8 @@ export default function HeroSection() {
             className="relative mx-auto max-w-md mb-16 animate-float"
             style={{ animationDuration: "6s" }}
           >
-            <div className="speech-bubble text-white p-5 shadow-bubble bg-gradient-to-r from-purple-300 to-pink-300 rounded-3xl">
-              <p className="font-accent text-xl text-center drop-shadow-sm">
+            <div className="speech-bubble text-white p-5 shadow-bubble bg-gradient-to-r from-slate-700 to-slate-800 rounded-2xl border border-slate-600/20">
+              <p className="font-accent text-xl text-center">
                 Let's bondify with meaningful conversations, even ChatGPT feels jealous.
               </p>
             </div>
