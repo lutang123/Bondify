@@ -78,7 +78,7 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
         {/* Color gradient overlay on top of white overlay */}
         <div className={`absolute inset-0 ${getOverlayGradient(id)}`}></div>
         <div className="absolute bottom-0 left-0 w-full p-4">
-          <h3 className="font-accent text-2xl font-bold text-white drop-shadow-lg">{name}</h3>
+          <h3 className="font-accent text-2xl font-bold text-white drop-shadow-lg text-left">{name}</h3>
         </div>
       </div>
       
@@ -92,12 +92,8 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
             </span>
           )}
         </div>
-        {/* Main tagline with more emphasis */}
-        <p className="text-gray-900 font-medium mb-3 text-base leading-snug">
-          {description.split('.')[0]}.
-        </p>
-        <p className="text-gray-600 mb-4 text-sm">
-          {description.split('.').slice(1).join('.')}
+        <p className="text-gray-700 mb-6 text-base">
+          {description}
         </p>
         <p className="italic text-sm text-gray-500 mb-4 border-l-2 pl-3 border-gray-200">
           "{quote}"
