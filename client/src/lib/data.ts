@@ -15,7 +15,6 @@ export interface Category {
   sampleQuestions: string[];
 }
 
-// Updated categories with clearer structure matching design
 export const categories: Category[] = [
   {
     id: "twilight",
