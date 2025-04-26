@@ -167,7 +167,7 @@ function QuestionCard({
             
             <Button 
               size="sm"
-              className="rounded-full bg-gradient-to-r from-blue-400 to-indigo-400 hover:opacity-90 text-white"
+              className="rounded-full bg-gradient-to-r from-purple-400 to-pink-400 hover:opacity-90 text-white"
               onClick={(e) => {
                 e.stopPropagation();
                 onNext();
