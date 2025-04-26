@@ -10,23 +10,23 @@ interface CategoryCardProps {
 }
 
 export default function CategoryCard({ category, delay = 0 }: CategoryCardProps) {
-  // Function to get gradient based on category id
+  // Function to get gradient based on category id - softer pastel colors
   function getButtonGradient(id: string): string {
     switch(id) {
       case 'twilight':
-        return 'bg-gradient-to-r from-pink-500 to-pink-600';
+        return 'bg-gradient-to-r from-pink-400 to-pink-500';
       case 'lovers':
-        return 'bg-gradient-to-r from-purple-500 to-purple-600';
+        return 'bg-gradient-to-r from-purple-400 to-purple-500';
       case 'sunlit':
-        return 'bg-gradient-to-r from-yellow-400 to-yellow-500';
+        return 'bg-gradient-to-r from-yellow-300 to-yellow-400';
       case 'brainstorm':
-        return 'bg-gradient-to-r from-orange-400 to-orange-500';
+        return 'bg-gradient-to-r from-orange-300 to-orange-400';
       case 'woodland':
-        return 'bg-gradient-to-r from-green-400 to-green-500';
+        return 'bg-gradient-to-r from-green-300 to-green-400';
       case 'mirror':
-        return 'bg-gradient-to-r from-blue-400 to-blue-500';
+        return 'bg-gradient-to-r from-blue-300 to-blue-400';
       default:
-        return 'bg-gradient-to-r from-purple-500 to-pink-500';
+        return 'bg-gradient-to-r from-purple-400 to-pink-400';
     }
   }
   const {
@@ -39,23 +39,23 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
     isPremium
   } = category;
 
-  // Function to get overlay gradient based on category id
+  // Function to get overlay gradient based on category id - softer pastel colors with reduced opacity
   function getOverlayGradient(id: string): string {
     switch(id) {
       case 'twilight':
-        return 'bg-gradient-to-t from-pink-500/80 to-transparent';
+        return 'bg-gradient-to-t from-pink-400/60 to-transparent';
       case 'lovers':
-        return 'bg-gradient-to-t from-purple-500/80 to-transparent';
+        return 'bg-gradient-to-t from-purple-400/60 to-transparent';
       case 'sunlit':
-        return 'bg-gradient-to-t from-yellow-400/80 to-transparent';
+        return 'bg-gradient-to-t from-yellow-300/60 to-transparent';
       case 'brainstorm':
-        return 'bg-gradient-to-t from-orange-400/80 to-transparent';
+        return 'bg-gradient-to-t from-orange-300/60 to-transparent';
       case 'woodland':
-        return 'bg-gradient-to-t from-green-400/80 to-transparent';
+        return 'bg-gradient-to-t from-green-300/60 to-transparent';
       case 'mirror':
-        return 'bg-gradient-to-t from-blue-400/80 to-transparent';
+        return 'bg-gradient-to-t from-blue-300/60 to-transparent';
       default:
-        return 'bg-gradient-to-t from-gray-500/80 to-transparent';
+        return 'bg-gradient-to-t from-gray-400/60 to-transparent';
     }
   }
 
@@ -73,15 +73,18 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
           className="w-full h-full object-cover object-center" 
           loading="lazy"
         />
+        {/* White overlay to soften the image - 15% opacity */}
+        <div className="absolute inset-0 bg-white/15"></div>
+        {/* Color gradient overlay on top of white overlay */}
         <div className={`absolute inset-0 ${getOverlayGradient(id)}`}></div>
         <div className="absolute bottom-0 left-0 w-full p-4">
-          <h3 className="font-accent text-2xl font-bold text-white drop-shadow-md">{name}</h3>
+          <h3 className="font-accent text-2xl font-bold text-white drop-shadow-lg">{name}</h3>
         </div>
       </div>
       
       <div className="p-6">
-        <div className="flex justify-between items-center mb-2">
-          <h4 className="font-semibold text-gray-900">{subtitle}</h4>
+        <div className="flex justify-between items-center mb-3">
+          <h4 className="font-semibold text-gray-700 text-sm">{subtitle}</h4>
           {isPremium && (
             <span className="px-2 py-1 bg-purple-100 text-purple-500 text-xs rounded-full flex items-center">
               <Lock className="h-3 w-3 mr-1" />
@@ -89,10 +92,14 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
             </span>
           )}
         </div>
-        <p className="text-gray-600 mb-6">
-          {description}
+        {/* Main tagline with more emphasis */}
+        <p className="text-gray-900 font-medium mb-3 text-base leading-snug">
+          {description.split('.')[0]}.
         </p>
-        <p className="italic text-sm text-gray-500 mb-4">
+        <p className="text-gray-600 mb-4 text-sm">
+          {description.split('.').slice(1).join('.')}
+        </p>
+        <p className="italic text-sm text-gray-500 mb-4 border-l-2 pl-3 border-gray-200">
           "{quote}"
         </p>
         <Link 
