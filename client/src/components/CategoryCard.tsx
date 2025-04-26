@@ -43,19 +43,19 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
   function getOverlayGradient(id: string): string {
     switch(id) {
       case 'twilight':
-        return 'bg-gradient-to-t from-pink-500/80 to-transparent';
+        return 'bg-gradient-to-tr from-pink-600/90 via-pink-500/70 to-transparent';
       case 'lovers':
-        return 'bg-gradient-to-t from-purple-500/80 to-transparent';
+        return 'bg-gradient-to-tr from-purple-600/90 via-purple-500/70 to-transparent';
       case 'sunlit':
-        return 'bg-gradient-to-t from-yellow-400/80 to-transparent';
+        return 'bg-gradient-to-tr from-yellow-600/90 via-yellow-500/70 to-transparent';
       case 'brainstorm':
-        return 'bg-gradient-to-t from-orange-400/80 to-transparent';
+        return 'bg-gradient-to-tr from-orange-600/90 via-orange-500/70 to-transparent';
       case 'woodland':
-        return 'bg-gradient-to-t from-green-400/80 to-transparent';
+        return 'bg-gradient-to-tr from-green-600/90 via-green-500/70 to-transparent';
       case 'mirror':
-        return 'bg-gradient-to-t from-blue-400/80 to-transparent';
+        return 'bg-gradient-to-tr from-blue-600/90 via-blue-500/70 to-transparent';
       default:
-        return 'bg-gradient-to-t from-gray-500/80 to-transparent';
+        return 'bg-gradient-to-tr from-gray-600/90 via-gray-500/70 to-transparent';
     }
   }
 
@@ -64,23 +64,23 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay }}
-      className="category-card rounded-3xl overflow-hidden shadow-soft bg-white border border-gray-100 hover:border-gray-300"
+      className="category-card rounded-3xl overflow-hidden shadow-md bg-white border border-gray-100 hover:border-gray-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
     >
-      <div className="h-40 overflow-hidden relative">
+      <div className="h-40 overflow-hidden relative group">
         <img 
           src={imageUrl} 
           alt={name} 
-          className="w-full h-full object-cover" 
+          className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110" 
         />
         <div className={`absolute inset-0 ${getOverlayGradient(id)}`}></div>
         <div className="absolute bottom-0 left-0 w-full p-4">
-          <h3 className="font-accent text-2xl font-bold text-white">{name}</h3>
+          <h3 className="font-accent text-2xl font-bold text-white drop-shadow-sm">{name}</h3>
+          <p className="text-white/90 text-sm drop-shadow-sm">{subtitle}</p>
         </div>
       </div>
       
       <div className="p-6">
-        <div className="flex justify-between items-center mb-2">
-          <h4 className="font-semibold text-gray-900">{subtitle}</h4>
+        <div className="flex justify-end mb-2">
           {isPremium && (
             <span className="px-2 py-1 bg-purple-100 text-purple-500 text-xs rounded-full flex items-center">
               <Lock className="h-3 w-3 mr-1" />
