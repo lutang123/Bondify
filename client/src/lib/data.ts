@@ -1,9 +1,8 @@
-// Import local images
-import mirrorMeadowImage from "../assets/mirror_meadow.jpg";
-// Use Unsplash images for other categories - selected to match your provided images
-const twilightTidesImage = "https://images.unsplash.com/photo-1593359677949-e4672e1be8d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=85";
-const loversLanternImage = "https://images.unsplash.com/photo-1516048015710-7a3b4c86be43?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=85";
-const woodlandWonderImage = "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=85";
+// Using relative URLs for local images instead of imports to avoid ESM errors
+const mirrorMeadowImage = "/src/assets/mirror_meadow.jpg";
+const twilightTidesImage = "/src/assets/twilight_tide.png";
+const loversLanternImage = "/src/assets/lover_lantern.png";
+const woodlandWonderImage = "/src/assets/woodland_wonder.png";
 
 export interface Category {
   id: string;
