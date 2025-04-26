@@ -16,7 +16,7 @@ export const categories: Category[] = [
     subtitle: "First Date Fuel",
     description: "Don't believe in love at first sight? Try this. Romantic connection starters, deep cuts, and curveballs to spark unforgettable first dates.",
     quote: "Because 'So what do you do?' should be illegal on a first date.",
-    imageUrl: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1532767153582-b1a0e5145009?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200&q=80",
     sampleQuestions: [
       "What's something you're passionate about that most people don't know?",
       "If we could teleport anywhere for our next date, where would you choose?",
@@ -31,7 +31,7 @@ export const categories: Category[] = [
     subtitle: "After Dark (18+)",
     description: "Curious about your partner's spicy secrets? This premium deck unlocks tasteful, vulnerable, and playful intimacy.",
     quote: "Unlock the secret deck couples can't stop talking about.",
-    imageUrl: "https://images.unsplash.com/photo-1505483531331-fc3cf89fd382?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1580196969807-cc6de06c05be?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200&q=80",
     isPremium: true,
     sampleQuestions: [
       "What's one fantasy you've never shared with me before?",
@@ -77,7 +77,7 @@ export const categories: Category[] = [
     subtitle: "Kid Bond: Talk Like Tiny Humans",
     description: "Got a tiny human nearby who thinks like a philosopher trapped in a jellybean body? Bond with kids (or teens) in ways that matter.",
     quote: "Because 'How was school?' always gets the same answer.",
-    imageUrl: "https://images.unsplash.com/photo-1517164850305-99a3e65bb47e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1501261379837-c3b516c6dc5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200&q=80",
     sampleQuestions: [
       "If you could have any superpower, what would it be and what's the first thing you'd do?",
       "What's the funniest thing that happened at school this week?",
@@ -92,7 +92,7 @@ export const categories: Category[] = [
     subtitle: "Solo Reflection",
     description: "Just vibing solo? This is your daily conversation with the realest person you know—yourself. Includes gratitude check-ins and personal growth prompts.",
     quote: "Less therapy. More XP for your soul.",
-    imageUrl: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1506260408121-e353d10b87c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200&q=80",
     sampleQuestions: [
       "What's something you're proud of that you rarely talk about?",
       "If you could write a note to your younger self, what would you say?",
