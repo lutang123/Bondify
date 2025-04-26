@@ -1,5 +1,9 @@
 // Import local images
 import mirrorMeadowImage from "../assets/mirror_meadow.jpg";
+// Use Unsplash images for other categories - selected to match your provided images
+const twilightTidesImage = "https://images.unsplash.com/photo-1593359677949-e4672e1be8d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=85";
+const loversLanternImage = "https://images.unsplash.com/photo-1516048015710-7a3b4c86be43?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=85";
+const woodlandWonderImage = "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=85";
 
 export interface Category {
   id: string;
@@ -19,7 +23,7 @@ export const categories: Category[] = [
     subtitle: "First Date Fuel",
     description: "Don't believe in love at first sight? Try this. Romantic connection starters, deep cuts, and curveballs to spark unforgettable first dates.",
     quote: "Because 'So what do you do?' should be illegal on a first date.",
-    imageUrl: "https://images.unsplash.com/photo-1532767153582-b1a0e5145009?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200&q=80",
+    imageUrl: twilightTidesImage,
     sampleQuestions: [
       "What's something you're passionate about that most people don't know?",
       "If we could teleport anywhere for our next date, where would you choose?",
@@ -34,7 +38,7 @@ export const categories: Category[] = [
     subtitle: "After Dark (18+)",
     description: "Curious about your partner's spicy secrets? This premium deck unlocks tasteful, vulnerable, and playful intimacy.",
     quote: "Unlock the secret deck couples can't stop talking about.",
-    imageUrl: "https://images.unsplash.com/photo-1580196969807-cc6de06c05be?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200&q=80",
+    imageUrl: loversLanternImage,
     isPremium: true,
     sampleQuestions: [
       "What's one fantasy you've never shared with me before?",
@@ -80,7 +84,7 @@ export const categories: Category[] = [
     subtitle: "Kid Bond: Talk Like Tiny Humans",
     description: "Got a tiny human nearby who thinks like a philosopher trapped in a jellybean body? Bond with kids (or teens) in ways that matter.",
     quote: "Because 'How was school?' always gets the same answer.",
-    imageUrl: "https://images.unsplash.com/photo-1501261379837-c3b516c6dc5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200&q=80",
+    imageUrl: woodlandWonderImage,
     sampleQuestions: [
       "If you could have any superpower, what would it be and what's the first thing you'd do?",
       "What's the funniest thing that happened at school this week?",
