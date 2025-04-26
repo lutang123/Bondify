@@ -71,9 +71,10 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
     switch(categoryId) {
       case 'twilight':
         return '/twilight-tides';
-      // Once we create other category pages, add their routes here
       case 'lovers':
+        return '/lovers-lantern';
       case 'sunlit': 
+        return '/sunlit-social';
       case 'brainstorm':
       case 'woodland':
       case 'mirror':

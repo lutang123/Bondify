@@ -11,6 +11,8 @@ import CategoryPage from "@/pages/CategoryPage";
 import JoinClub from "@/pages/JoinClub";
 import WeeklyPacks from "@/pages/WeeklyPacks";
 import TwilightTidesPage from "@/pages/TwilightTidesPage";
+import LoversLanternPage from "@/pages/LoversLanternPage";
+import SunlitSocialPage from "@/pages/SunlitSocialPage";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -28,6 +30,8 @@ function Router() {
         <Route path="/category/:id" component={CategoryPage} />
         {/* New dedicated category pages */}
         <Route path="/twilight-tides" component={TwilightTidesPage} />
+        <Route path="/lovers-lantern" component={LoversLanternPage} />
+        <Route path="/sunlit-social" component={SunlitSocialPage} />
         <Route path="/join-club" component={JoinClub} />
         <Route path="/weekly-packs" component={WeeklyPacks} />
         <Route component={NotFound} />
