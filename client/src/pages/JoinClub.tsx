@@ -15,7 +15,7 @@ export default function JoinClub() {
       <div className="bg-bubble-100 py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h1 className="font-accent text-4xl md:text-5xl font-bold mb-6 text-center bg-gradient-to-r from-purple-300 to-pink-300 gradient-text">
+            <h1 className="font-accent text-4xl md:text-5xl font-bold mb-6 text-center bg-gradient-to-r from-[hsl(var(--lovers))] to-[hsl(var(--twilight))] gradient-text">
               Join the Bondify Club
             </h1>
             
@@ -91,7 +91,7 @@ export default function JoinClub() {
                     </li>
                   </ul>
                   
-                  <Button className="w-full bg-gradient-to-r from-purple-300 to-pink-300 text-white">
+                  <Button className="w-full bg-gradient-to-r from-[hsl(var(--lovers))] to-[hsl(var(--twilight))] text-white">
                     Upgrade Now
                   </Button>
                   
