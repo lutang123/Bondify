@@ -10,6 +10,7 @@ import About from "@/pages/About";
 import CategoryPage from "@/pages/CategoryPage";
 import JoinClub from "@/pages/JoinClub";
 import WeeklyPacks from "@/pages/WeeklyPacks";
+import TwilightTidesPage from "@/pages/TwilightTidesPage";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
