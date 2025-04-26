@@ -9,6 +9,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { categories } from "@/lib/data";
+import logoPath from "../assets/bondify-logo.svg";
+import textLogoPath from "../assets/bondify-text-logo.svg";
 
 export default function Header() {
   const [location] = useLocation();
@@ -18,10 +20,8 @@ export default function Header() {
     <header className="sticky top-0 bg-white/95 backdrop-blur-sm z-50 shadow-sm">
       <div className="container mx-auto flex justify-between items-center px-4 py-3">
         <Link href="/" className="flex items-center space-x-2">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-r from-[hsl(var(--lovers))] to-[hsl(var(--twilight))] flex items-center justify-center">
-            <span className="text-white font-accent font-bold text-xl">B</span>
-          </div>
-          <span className="font-accent text-2xl font-semibold bg-gradient-to-r from-[hsl(var(--lovers))] to-[hsl(var(--twilight))] gradient-text">
+          <img src={logoPath} alt="Bondify Logo" className="w-10 h-10" />
+          <span className="font-accent text-2xl font-semibold bg-gradient-to-r from-purple-600 to-pink-500 gradient-text">
             Bondify
           </span>
         </Link>
