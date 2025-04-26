@@ -16,6 +16,7 @@ import SunlitSocialPage from "@/pages/SunlitSocialPage";
 import BrainstormBlitzPage from "@/pages/BrainstormBlitzPage";
 import WoodlandWonderPage from "@/pages/WoodlandWonderPage";
 import MirrorMeadowPage from "@/pages/MirrorMeadowPage";
+import ImageTest from "@/pages/ImageTest";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -40,6 +41,7 @@ function Router() {
         <Route path="/brainstorm-blitz" component={BrainstormBlitzPage} />
         <Route path="/join-club" component={JoinClub} />
         <Route path="/weekly-packs" component={WeeklyPacks} />
+        <Route path="/image-test" component={ImageTest} />
         <Route component={NotFound} />
       </Switch>
       <Footer />
