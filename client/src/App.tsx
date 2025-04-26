@@ -22,6 +22,7 @@ function Router() {
         <Route path="/about" component={About} />
         <Route path="/category/:id" component={CategoryPage} />
         <Route path="/join-club" component={JoinClub} />
+        <Route path="/download-logo" component={DownloadLogo} />
         <Route component={NotFound} />
       </Switch>
       <Footer />

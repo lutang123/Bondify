@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'wouter';
 import Logo from '@/components/Logo';
-import { Button } from '@/components/ui/button';
 import { ArrowLeft, Download } from 'lucide-react';
 
 export default function DownloadLogo() {
@@ -26,10 +25,10 @@ export default function DownloadLogo() {
           </div>
           <h2 className="text-xl font-semibold mb-2">SVG Format</h2>
           <p className="text-gray-600 mb-6">Vector format, perfect for any size. Maintains quality when scaled.</p>
-          <Button as="a" href="/bondify-logo.svg" download="bondify-logo.svg" className="flex items-center">
+          <a href="/bondify-logo.svg" download="bondify-logo.svg" className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-primary text-primary-foreground hover:bg-primary/90 h-10 py-2 px-4">
             <Download className="h-4 w-4 mr-2" />
             Download SVG
-          </Button>
+          </a>
         </div>
         
         <div className="border border-gray-200 rounded-xl p-8 flex flex-col items-center text-center hover:shadow-md transition-shadow">
@@ -38,10 +37,10 @@ export default function DownloadLogo() {
           </div>
           <h2 className="text-xl font-semibold mb-2">PNG Format</h2>
           <p className="text-gray-600 mb-6">Standard format, compatible with most applications. Includes transparency.</p>
-          <Button as="a" href="/bondify-logo.png" download="bondify-logo.png" className="flex items-center">
+          <a href="/bondify-logo.png" download="bondify-logo.png" className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-primary text-primary-foreground hover:bg-primary/90 h-10 py-2 px-4">
             <Download className="h-4 w-4 mr-2" />
             Download PNG
-          </Button>
+          </a>
         </div>
       </div>
       

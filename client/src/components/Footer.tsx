@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import Logo from "./Logo";
 
 export default function Footer() {
   return (
@@ -6,14 +7,7 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[hsl(var(--lovers))] to-[hsl(var(--twilight))] flex items-center justify-center">
-                <span className="text-white font-accent font-bold text-sm">B</span>
-              </div>
-              <span className="font-accent text-xl font-semibold bg-gradient-to-r from-[hsl(var(--lovers))] to-[hsl(var(--twilight))] gradient-text">
-                Bondify
-              </span>
-            </Link>
+            <Logo size={32} withText={true} />
             <p className="text-gray-500 mt-2 text-sm">
               The Playful Path to Deeper Connections
             </p>
@@ -31,6 +25,9 @@ export default function Footer() {
             </Link>
             <Link href="/join-club" className="text-gray-600 hover:text-[hsl(var(--lovers))] transition-colors">
               Join Bondify Club
+            </Link>
+            <Link href="/download-logo" className="text-gray-600 hover:text-[hsl(var(--lovers))] transition-colors">
+              Download Logo
             </Link>
             <Link href="/" className="text-gray-600 hover:text-[hsl(var(--lovers))] transition-colors">
               Privacy
