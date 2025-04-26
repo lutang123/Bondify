@@ -143,37 +143,35 @@ function QuestionCard({
           </div>
           
           <div className="pt-4 flex justify-between items-center border-t border-gray-100">
-            <div className="flex space-x-2">
-              <Button 
-                variant="outline" 
-                size="sm" 
-                className={`rounded-full ${isAnswered ? 'bg-green-50 text-green-600 border-green-200' : ''}`}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  onAnswer();
-                }}
-              >
-                <Check className={`h-4 w-4 mr-1 ${isAnswered ? 'text-green-600' : ''}`} />
-                {isAnswered ? 'Answered' : 'Mark Answered'}
-              </Button>
-              
-              <Button 
-                variant="outline" 
-                size="sm"
-                className={`rounded-full ${isFavorite ? 'bg-red-50 text-red-500 border-red-200' : ''}`}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  onFavorite();
-                }}
-              >
-                <Heart className={`h-4 w-4 mr-1 ${isFavorite ? 'fill-current text-red-500' : ''}`} />
-                {isFavorite ? 'Favorited' : 'Favorite'}
-              </Button>
-            </div>
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className={`rounded-full ${isAnswered ? 'bg-purple-50 text-purple-600 border-purple-200' : ''}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                onAnswer();
+              }}
+            >
+              <Check className={`h-4 w-4 mr-1 ${isAnswered ? 'text-purple-600' : ''}`} />
+              {isAnswered ? 'Mark Answered' : 'Mark Answered'}
+            </Button>
+            
+            <Button 
+              variant="outline" 
+              size="sm"
+              className={`rounded-full ${isFavorite ? 'bg-red-50 text-red-500 border-red-200' : ''}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                onFavorite();
+              }}
+            >
+              <Heart className={`h-4 w-4 mr-1 ${isFavorite ? 'fill-current text-red-500' : ''}`} />
+              {isFavorite ? 'Favorited' : 'Favorite'}
+            </Button>
             
             <Button 
               size="sm"
-              className="rounded-full bg-gradient-to-r from-purple-400 to-pink-400 hover:opacity-90 text-white"
+              className="rounded-full bg-purple-500 hover:bg-purple-600 text-white"
               onClick={(e) => {
                 e.stopPropagation();
                 onNext();
