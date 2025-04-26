@@ -93,16 +93,24 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
           )}
         </div>
         <div className="mb-6">
-          <p className="text-gray-800 font-medium mb-2 text-base">
-            {description.split('.')[0]}.
+          <p className="italic text-sm text-gray-500 mb-3 border-l-2 pl-3 border-gray-200">
+            "{id === 'twilight' ? "Don't believe in love at first sight? Try this." :
+              id === 'lovers' ? "Curious about your partner's spicy secrets?" :
+              id === 'sunlit' ? "In a bar or meetup and everyone's glued to their phones?" :
+              id === 'brainstorm' ? "Up for some mental gymnastics?" :
+              id === 'woodland' ? "Got a tiny human nearby who thinks like a philosopher trapped in a jellybean body?" :
+              id === 'mirror' ? "Just vibing solo?" : ""}"
           </p>
-          <p className="text-gray-600 text-sm">
-            {description.split('.').slice(1).join('.').trim()}
+          <p className="text-gray-700 text-base">
+            {id === 'twilight' ? "Romantic connection starters, deep cuts, and curveballs to spark unforgettable first dates. " + quote :
+             id === 'lovers' ? "This premium deck unlocks tasteful, vulnerable, and playful intimacy. " + quote :
+             id === 'sunlit' ? "This category brings laughter, party mode games, and bond with a stranger challenges. " + quote :
+             id === 'brainstorm' ? "Explore fun riddles, what-ifs, ethical dilemmas, and party-style debate prompts. " + quote :
+             id === 'woodland' ? "Bond with kids (or teens) in ways that matter. " + quote :
+             id === 'mirror' ? "This is your daily conversation with the realest person you know—yourself. Includes gratitude check-ins and personal growth prompts. " + quote :
+             description}
           </p>
         </div>
-        <p className="italic text-sm text-gray-500 mb-4 border-l-2 pl-3 border-gray-200">
-          "{quote}"
-        </p>
         <Link 
           href={`/category/${id}`} 
           className={`block w-full py-3 rounded-full ${getButtonGradient(id)} text-white text-center font-medium hover:shadow-md transition-all`}
