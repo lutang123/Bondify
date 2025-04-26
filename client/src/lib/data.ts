@@ -1,3 +1,6 @@
+// Import local images
+import mirrorMeadowImage from "../assets/mirror_meadow.jpg";
+
 export interface Category {
   id: string;
   name: string;
@@ -92,7 +95,7 @@ export const categories: Category[] = [
     subtitle: "Solo Reflection",
     description: "Just vibing solo? This is your daily conversation with the realest person you know—yourself. Includes gratitude check-ins and personal growth prompts.",
     quote: "Less therapy. More XP for your soul.",
-    imageUrl: "/images/mirror_meadow.jpg",
+    imageUrl: mirrorMeadowImage,
     sampleQuestions: [
       "What's something you're proud of that you rarely talk about?",
       "If you could write a note to your younger self, what would you say?",
