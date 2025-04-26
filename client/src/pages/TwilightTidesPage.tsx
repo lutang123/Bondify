@@ -144,40 +144,36 @@ function QuestionCard({
           
           <div className="pt-4 flex justify-between items-center border-t border-gray-100">
             <Button 
-              variant="outline" 
-              size="sm" 
-              className={`rounded-full ${isAnswered ? 'bg-purple-50 text-purple-600 border-purple-200' : ''}`}
-              onClick={(e) => {
-                e.stopPropagation();
-                onAnswer();
-              }}
-            >
-              <Check className={`h-4 w-4 mr-1 ${isAnswered ? 'text-purple-600' : ''}`} />
-              {isAnswered ? 'Mark Answered' : 'Mark Answered'}
-            </Button>
-            
-            <Button 
-              variant="outline" 
-              size="sm"
-              className={`rounded-full ${isFavorite ? 'bg-red-50 text-red-500 border-red-200' : ''}`}
+              variant="ghost"
+              size="icon"
               onClick={(e) => {
                 e.stopPropagation();
                 onFavorite();
               }}
             >
-              <Heart className={`h-4 w-4 mr-1 ${isFavorite ? 'fill-current text-red-500' : ''}`} />
-              {isFavorite ? 'Favorited' : 'Favorite'}
+              <Heart className={`h-6 w-6 ${isFavorite ? 'fill-current text-red-500' : 'text-gray-500'}`} />
             </Button>
             
             <Button 
-              size="sm"
-              className="rounded-full bg-purple-500 hover:bg-purple-600 text-white"
+              variant="ghost"
+              size="icon"
+              onClick={(e) => {
+                e.stopPropagation();
+                onAnswer();
+              }}
+            >
+              <Check className={`h-6 w-6 ${isAnswered ? 'text-gray-700' : 'text-gray-500'}`} />
+            </Button>
+            
+            <Button 
+              variant="ghost"
+              size="icon"
               onClick={(e) => {
                 e.stopPropagation();
                 onNext();
               }}
             >
-              Next <ChevronRight className="h-4 w-4 ml-1" />
+              <ChevronRight className="h-6 w-6 text-gray-500" />
             </Button>
           </div>
         </div>
