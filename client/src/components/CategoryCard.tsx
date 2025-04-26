@@ -66,6 +66,7 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
       transition={{ duration: 0.5, delay }}
       className="category-card rounded-3xl overflow-hidden shadow-soft bg-white border border-gray-100 hover:border-gray-300"
     >
+      {/* Image and Main Title */}
       <div className="h-48 overflow-hidden relative">
         <img 
           src={imageUrl} 
@@ -77,14 +78,14 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
         <div className="absolute inset-0 bg-white/20"></div>
         {/* Color gradient overlay on top of white overlay */}
         <div className={`absolute inset-0 ${getOverlayGradient(id)}`}></div>
-        <div className="absolute bottom-0 left-0 w-full p-4">
+        <div className="absolute bottom-0 left-0 w-full p-4 text-center">
           <h3 className="font-accent text-2xl font-bold text-white drop-shadow-lg">{name}</h3>
         </div>
       </div>
       
       <div className="p-6">
+        {/* 1. Tagline (small subtitle) */}
         <div className="flex justify-between items-center mb-3">
-          {/* Tagline - clearer connection to main title */}
           <h4 className="font-semibold text-gray-700 text-sm">{subtitle}</h4>
           {isPremium && (
             <span className="px-2 py-1 bg-purple-50 text-purple-400 text-xs rounded-full flex items-center">
@@ -94,17 +95,17 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
           )}
         </div>
         
-        {/* Hook/Prompt with emphasis */}
-        <p className="text-gray-900 font-medium mb-3 text-base leading-snug">
-          {description.split('.')[0]}.
+        {/* 2. Hook/Prompt (eye-catching main hook) */}
+        <p className="text-gray-900 font-semibold mb-3 text-lg leading-snug">
+          {typeof prompt === 'string' ? prompt : description.split('.')[0] + '.'}
         </p>
         
-        {/* Description */}
+        {/* 3. Description (plain body text) */}
         <p className="text-gray-600 mb-4 text-sm">
-          {description.split('.').slice(1).join('.')}
+          {description}
         </p>
         
-        {/* Slogan/Tagline without quote marks */}
+        {/* 4. Footnote/Quote (subtle styling) */}
         <p className="italic text-sm text-gray-500 mb-4 border-l-2 pl-3 border-gray-200">
           {quote}
         </p>

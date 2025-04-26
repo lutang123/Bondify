@@ -10,19 +10,21 @@ export interface Category {
   subtitle: string;
   description: string;
   quote: string;
+  prompt?: string; // Optional to handle frontend-only property
   imageUrl: string;
   isPremium?: boolean;
   sampleQuestions: string[];
 }
 
-// Updated categories with clearer structure matching design
+// Updated categories with standardized structure based on user requirements
 export const categories: Category[] = [
   {
     id: "twilight",
     name: "Twilight Tides",
     subtitle: "First Date Fuel",
-    description: "Don't believe in love at first sight? Try this. Romantic connection starters, deep cuts, and curveballs to spark unforgettable first dates.",
+    description: "Romantic connection starters, deep cuts, and curveballs to spark unforgettable first dates.",
     quote: "Because 'So what do you do?' should be illegal on a first date.",
+    prompt: "Don't believe in love at first sight?",
     imageUrl: twilightTidesImage,
     sampleQuestions: [
       "What's something you're passionate about that most people don't know?",
@@ -36,8 +38,9 @@ export const categories: Category[] = [
     id: "lovers",
     name: "Lover's Lantern",
     subtitle: "After Dark (18+)",
-    description: "Curious about your partner's spicy secrets? This premium deck unlocks tasteful, vulnerable, and playful intimacy.",
+    description: "This premium deck unlocks tasteful, vulnerable, and playful intimacy.",
     quote: "Unlock the secret deck couples can't stop talking about.",
+    prompt: "Curious about your partner's spicy secrets?",
     imageUrl: loversLanternImage,
     isPremium: true,
     sampleQuestions: [
@@ -52,8 +55,9 @@ export const categories: Category[] = [
     id: "sunlit",
     name: "Sunlit Summit",
     subtitle: "Stranger Things & Friend Flings",
-    description: "In a bar or meetup and everyone's glued to their phones? This category brings laughter, party mode games, and \"bond with a stranger\" challenges.",
+    description: "This category brings laughter, party mode games, and \"bond with a stranger\" challenges.",
     quote: "Friendship speedrun: initiate in 3... 2... 1...",
+    prompt: "In a bar or meetup and everyone's glued to their phones?",
     imageUrl: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200&q=80",
     sampleQuestions: [
       "What's the strangest talent you have that few people know about?",
@@ -67,8 +71,9 @@ export const categories: Category[] = [
     id: "brainstorm",
     name: "Brainstorm Blitz",
     subtitle: "Mind Games & Icebreakers",
-    description: "Up for some mental gymnastics? Explore fun riddles, what-ifs, ethical dilemmas, and party-style debate prompts.",
+    description: "Explore fun riddles, what-ifs, ethical dilemmas, and party-style debate prompts.",
     quote: "Pub quiz meets party game meets deep-thought detour.",
+    prompt: "Up for some mental gymnastics?",
     imageUrl: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200&q=80",
     sampleQuestions: [
       "Would you rather have unlimited money but no friends, or be broke with amazing friends?",
@@ -82,8 +87,9 @@ export const categories: Category[] = [
     id: "woodland",
     name: "Woodland Wonder",
     subtitle: "Kid Bond: Talk Like Tiny Humans",
-    description: "Got a tiny human nearby who thinks like a philosopher trapped in a jellybean body? Bond with kids (or teens) in ways that matter.",
+    description: "Bond with kids (or teens) in ways that matter — let them ask you back too!",
     quote: "Because 'How was school?' always gets the same answer.",
+    prompt: "Got a tiny human nearby who thinks like a philosopher trapped in a jellybean body?",
     imageUrl: woodlandWonderImage,
     sampleQuestions: [
       "If you could have any superpower, what would it be and what's the first thing you'd do?",
@@ -97,8 +103,9 @@ export const categories: Category[] = [
     id: "mirror",
     name: "Mirror Meadow",
     subtitle: "Solo Reflection",
-    description: "Just vibing solo? This is your daily conversation with the realest person you know—yourself. Includes gratitude check-ins and personal growth prompts.",
+    description: "A daily conversation with the realest person you know — yourself. Includes gratitude check-ins and personal growth prompts.",
     quote: "Less therapy. More XP for your soul.",
+    prompt: "Just vibing solo? This one's for you.",
     imageUrl: mirrorMeadowImage,
     sampleQuestions: [
       "What's something you're proud of that you rarely talk about?",
