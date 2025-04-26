@@ -126,6 +126,22 @@ function QuestionCard({
 
 // XP notification component
 function XPNotification({ amount, action }: { amount: number; action: string }) {
+  // Special case for reset notification
+  if (action === "resetting data") {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 20 }}
+        className="bg-white/80 backdrop-blur-sm rounded-lg p-2 px-4 shadow-lg absolute top-4 right-4 z-50 flex items-center"
+      >
+        <span className="font-medium text-purple-600">Data Reset</span>
+        <span className="ml-2 text-gray-600">XP points cleared</span>
+      </motion.div>
+    );
+  }
+  
+  // Regular XP notification
   return (
     <motion.div
       initial={{ opacity: 0, y: -20 }}
@@ -155,6 +171,27 @@ export default function CategoryPage() {
   
   const category = categories.find(cat => cat.id === id);
   
+  // Reset all data for this category
+  const resetCategoryData = () => {
+    // Clear localStorage items for this category
+    localStorage.removeItem(`favorites-${id}`);
+    localStorage.removeItem(`answered-${id}`);
+    localStorage.removeItem(`xp-${id}`);
+    
+    // Reset state
+    setFavorites([]);
+    setAnswered([]);
+    setXp(0);
+    setIsFlipped(false);
+    setHasStarted(false);
+    setCurrentQuestionIndex(0);
+    
+    // Show confirmation message
+    setXpAction("resetting data");
+    setShowXPNotification(true);
+    setTimeout(() => setShowXPNotification(false), 2000);
+  };
+
   useEffect(() => {
     // Initialize cards based on category
     if (category) {
@@ -165,6 +202,11 @@ export default function CategoryPage() {
       setCards(questions);
     }
     
+    // TEMPORARY: Reset all localStorage data for the current category on page load
+    resetCategoryData();
+    
+    // Comment out the loading code for now to ensure we start fresh
+    /*
     // Load favorites and answered questions from localStorage
     const storedFavorites = localStorage.getItem(`favorites-${id}`);
     const storedAnswered = localStorage.getItem(`answered-${id}`);
@@ -181,6 +223,7 @@ export default function CategoryPage() {
     if (storedXp) {
       setXp(parseInt(storedXp, 10));
     }
+    */
   }, [category, id]);
   
   // Save to localStorage whenever state changes
