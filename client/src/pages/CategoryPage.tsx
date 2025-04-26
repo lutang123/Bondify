@@ -105,7 +105,7 @@ export default function CategoryPage() {
       </div>
       
       <div className="container mx-auto px-4 py-8">
-        <h2 className={`text-2xl font-semibold mb-6 ${textColorClass}`}>{category.subtitle}</h2>
+        <h2 className={`text-2xl font-semibold mb-6 ${colors.text}`}>{category.subtitle}</h2>
         <p className="text-gray-600 mb-8 max-w-3xl">
           {category.description}
         </p>
@@ -114,11 +114,11 @@ export default function CategoryPage() {
         
         <div className="grid md:grid-cols-2 gap-6 mb-10">
           {[1, 2, 3, 4, 5].map(num => (
-            <Card key={num} className={`border ${borderColorClass}/30 shadow-soft`}>
+            <Card key={num} className={`border ${colors.border} shadow-soft`}>
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
-                  <div className={`mt-1 p-2 rounded-full bg-${id}/10`}>
-                    <MessageCircle className={`h-5 w-5 text-${id}`} />
+                  <div className={`mt-1 p-2 rounded-full ${colors.bgLight}`}>
+                    <MessageCircle className={`h-5 w-5 ${colors.text}`} />
                   </div>
                   <div>
                     <p className="font-medium text-gray-800">
@@ -133,7 +133,7 @@ export default function CategoryPage() {
         
         <div className="text-center">
           <Button 
-            className={`px-8 py-6 rounded-full bg-${id} hover:bg-${id}/90 text-white`}
+            className={`px-8 py-6 rounded-full ${colors.bg} hover:opacity-90 text-white`}
           >
             Show me more questions
           </Button>
