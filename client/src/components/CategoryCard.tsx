@@ -92,11 +92,31 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
             </span>
           )}
         </div>
-        <p className="text-gray-700 mb-6 text-base">
-          {description}
+        {/* Extract the intro question/prompt to make it stand out */}
+        <p className="text-gray-900 font-medium mb-3 text-base leading-snug">
+          {id === 'twilight' ? "Don't believe in love at first sight? Try this." :
+           id === 'lovers' ? "Curious about your partner's spicy secrets?" :
+           id === 'sunlit' ? "In a bar or meetup and everyone's glued to their phones?" :
+           id === 'brainstorm' ? "Up for some mental gymnastics?" :
+           id === 'woodland' ? "Got a tiny human nearby who thinks like a philosopher trapped in a jellybean body?" :
+           id === 'mirror' ? "Just vibing solo?" : ""
+          }
         </p>
-        <p className="italic text-sm text-gray-500 mb-4 border-l-2 pl-3 border-gray-200">
-          "{quote}"
+        
+        {/* Rest of the description */}
+        <p className="text-gray-600 mb-4 text-sm">
+          {id === 'twilight' ? "Romantic connection starters, deep cuts, and curveballs to spark unforgettable first dates." :
+           id === 'lovers' ? "This premium deck unlocks tasteful, vulnerable, and playful intimacy." :
+           id === 'sunlit' ? "This category brings laughter, party mode games, and \"bond with a stranger\" challenges." :
+           id === 'brainstorm' ? "Explore fun riddles, what-ifs, ethical dilemmas, and party-style debate prompts." :
+           id === 'woodland' ? "Bond with kids (or teens) in ways that matter." :
+           id === 'mirror' ? "This is your daily conversation with the realest person you know—yourself. Includes gratitude check-ins and personal growth prompts." : ""
+          }
+        </p>
+        
+        {/* Quote now styled like footer text */}
+        <p className="text-sm text-gray-500 mb-4 border-t border-gray-100 pt-3">
+          {quote}
         </p>
         <Link 
           href={`/category/${id}`} 
