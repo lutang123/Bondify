@@ -109,7 +109,7 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
         </div>
         <Link 
           href={`/category/${id}`} 
-          className="block w-full py-3 rounded-full bg-gradient-to-r from-purple-300 to-pink-300 text-white text-center font-medium hover:shadow-md transition-all"
+          className="block w-full py-3 rounded-full bg-purple-400 text-white text-center font-medium hover:bg-purple-500 transition-all"
         >
           Start Your Journey
         </Link>
