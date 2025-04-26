@@ -10,28 +10,23 @@ interface CategoryCardProps {
 }
 
 export default function CategoryCard({ category, delay = 0 }: CategoryCardProps) {
-  // Function to get button style - more sophisticated, subtle palette
+  // Function to get gradient based on category id - even lighter, softer pastel colors
   function getButtonGradient(id: string): string {
-    // Use a more consistent, refined palette across all categories
-    // with just subtle differences for each category
-    const baseGradient = 'bg-gradient-to-r from-slate-600 to-slate-700';
-    
-    // We'll use subtle border colors as accents instead of changing the whole button background
     switch(id) {
       case 'twilight':
-        return `${baseGradient} border border-pink-200/40`;
+        return 'bg-gradient-to-r from-pink-300 to-pink-400';
       case 'lovers':
-        return `${baseGradient} border border-purple-200/40`;
+        return 'bg-gradient-to-r from-purple-300 to-purple-400';
       case 'sunlit':
-        return `${baseGradient} border border-amber-200/40`;
+        return 'bg-gradient-to-r from-yellow-200 to-yellow-300';
       case 'brainstorm':
-        return `${baseGradient} border border-orange-200/40`;
+        return 'bg-gradient-to-r from-orange-200 to-orange-300';
       case 'woodland':
-        return `${baseGradient} border border-emerald-200/40`;
+        return 'bg-gradient-to-r from-green-200 to-green-300';
       case 'mirror':
-        return `${baseGradient} border border-blue-200/40`;
+        return 'bg-gradient-to-r from-blue-200 to-blue-300';
       default:
-        return `${baseGradient} border border-slate-400/40`;
+        return 'bg-gradient-to-r from-purple-300 to-pink-300';
     }
   }
   const {
@@ -44,11 +39,24 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
     isPremium
   } = category;
 
-  // Function to get overlay gradient based on category id - more mature, subtle tones
+  // Function to get overlay gradient based on category id - even lighter, softer pastel colors with gentle opacity
   function getOverlayGradient(id: string): string {
-    // Use a more consistent, sophisticated darker gradient
-    // that allows text to pop but keeps the colors subdued
-    return 'bg-gradient-to-t from-slate-900/70 via-slate-800/40 to-transparent';
+    switch(id) {
+      case 'twilight':
+        return 'bg-gradient-to-t from-pink-300/50 to-transparent';
+      case 'lovers':
+        return 'bg-gradient-to-t from-purple-300/50 to-transparent';
+      case 'sunlit':
+        return 'bg-gradient-to-t from-yellow-200/50 to-transparent';
+      case 'brainstorm':
+        return 'bg-gradient-to-t from-orange-200/50 to-transparent';
+      case 'woodland':
+        return 'bg-gradient-to-t from-green-200/50 to-transparent';
+      case 'mirror':
+        return 'bg-gradient-to-t from-blue-200/50 to-transparent';
+      default:
+        return 'bg-gradient-to-t from-gray-300/50 to-transparent';
+    }
   }
 
   return (
@@ -56,7 +64,7 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay }}
-      className="category-card rounded-2xl overflow-hidden shadow-md bg-white border border-gray-100 hover:shadow-lg transition-shadow duration-300 ease-in-out"
+      className="category-card rounded-3xl overflow-hidden shadow-soft bg-white border border-gray-100 hover:border-gray-300"
     >
       <div className="h-48 overflow-hidden relative">
         <img 
