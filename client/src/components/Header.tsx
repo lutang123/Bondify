@@ -33,7 +33,7 @@ export default function Header() {
           
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="font-medium text-gray-700 hover:text-white border-none hover:border-none transition-colors">
+              <Button variant="ghost" className="font-medium text-gray-700 hover:text-white hover:bg-[#F8A0A0] border-none hover:border-none transition-colors rounded-full px-4">
                 Categories
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
@@ -43,7 +43,18 @@ export default function Header() {
             <DropdownMenuContent className="w-56 p-2">
               {categories.map(category => (
                 <DropdownMenuItem key={category.id} asChild>
-                  <Link href={`/category/${category.id}`} className="flex px-4 py-2 text-sm rounded-md hover:bg-[hsl(var(--lovers))/10] hover:text-[hsl(var(--lovers))]">
+                  <Link 
+                    href={`/category/${category.id}`} 
+                    className={`flex px-4 py-2 text-sm rounded-md ${
+                      category.id === 'twilight' ? 'hover:bg-[#F8A0A0]/10 hover:text-[#F8A0A0]' :
+                      category.id === 'lovers' ? 'hover:bg-[hsl(var(--lovers))]/10 hover:text-[hsl(var(--lovers))]' :
+                      category.id === 'sunlit' ? 'hover:bg-yellow-200/20 hover:text-yellow-500' :
+                      category.id === 'brainstorm' ? 'hover:bg-orange-200/20 hover:text-orange-500' :
+                      category.id === 'woodland' ? 'hover:bg-green-200/20 hover:text-green-600' :
+                      category.id === 'mirror' ? 'hover:bg-blue-200/20 hover:text-blue-500' :
+                      'hover:bg-gray-100 hover:text-gray-900'
+                    }`}
+                  >
                     {category.name}
                   </Link>
                 </DropdownMenuItem>
