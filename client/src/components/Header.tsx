@@ -44,7 +44,15 @@ export default function Header() {
               {categories.map(category => (
                 <DropdownMenuItem key={category.id} asChild>
                   <Link 
-                    href={`/category/${category.id}`} 
+                    href={
+                      category.id === 'twilight' ? '/twilight-tides' :
+                      category.id === 'lovers' ? '/lovers-lantern' :
+                      category.id === 'sunlit' ? '/sunlit-social' :
+                      category.id === 'brainstorm' ? '/brainstorm-blitz' :
+                      category.id === 'woodland' ? '/woodland-wonder' :
+                      category.id === 'mirror' ? '/mirror-meadow' :
+                      `/category/${category.id}`
+                    } 
                     className={`flex px-4 py-2 text-sm rounded-md ${
                       category.id === 'twilight' ? 'hover:bg-[#F8A0A0]/10 hover:text-[#F8A0A0]' :
                       category.id === 'lovers' ? 'hover:bg-[hsl(var(--lovers))]/10 hover:text-[hsl(var(--lovers))]' :
@@ -101,7 +109,19 @@ export default function Header() {
             </Link>
             
             {categories.map(category => (
-              <Link key={category.id} href={`/category/${category.id}`} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-[hsl(var(--lovers))] hover:bg-[hsl(var(--lovers))/10]">
+              <Link 
+                key={category.id} 
+                href={
+                  category.id === 'twilight' ? '/twilight-tides' :
+                  category.id === 'lovers' ? '/lovers-lantern' :
+                  category.id === 'sunlit' ? '/sunlit-social' :
+                  category.id === 'brainstorm' ? '/brainstorm-blitz' :
+                  category.id === 'woodland' ? '/woodland-wonder' :
+                  category.id === 'mirror' ? '/mirror-meadow' :
+                  `/category/${category.id}`
+                } 
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-[hsl(var(--lovers))] hover:bg-[hsl(var(--lovers))/10]"
+              >
                 {category.name}
               </Link>
             ))}

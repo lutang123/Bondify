@@ -76,10 +76,13 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
       case 'sunlit': 
         return '/sunlit-social';
       case 'brainstorm':
+        return '/brainstorm-blitz';
       case 'woodland':
+        return '/woodland-wonder';
       case 'mirror':
+        return '/mirror-meadow';
       default:
-        // Temporarily fall back to the generic route until we create all dedicated pages
+        // Fallback to the generic route for any future categories
         return `/category/${categoryId}`;
     }
   };

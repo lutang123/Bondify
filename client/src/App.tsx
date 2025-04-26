@@ -13,6 +13,9 @@ import WeeklyPacks from "@/pages/WeeklyPacks";
 import TwilightTidesPage from "@/pages/TwilightTidesPage";
 import LoversLanternPage from "@/pages/LoversLanternPage";
 import SunlitSocialPage from "@/pages/SunlitSocialPage";
+import BrainstormBlitzPage from "@/pages/BrainstormBlitzPage";
+import WoodlandWonderPage from "@/pages/WoodlandWonderPage";
+import MirrorMeadowPage from "@/pages/MirrorMeadowPage";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -32,6 +35,9 @@ function Router() {
         <Route path="/twilight-tides" component={TwilightTidesPage} />
         <Route path="/lovers-lantern" component={LoversLanternPage} />
         <Route path="/sunlit-social" component={SunlitSocialPage} />
+        <Route path="/woodland-wonder" component={WoodlandWonderPage} />
+        <Route path="/mirror-meadow" component={MirrorMeadowPage} />
+        <Route path="/brainstorm-blitz" component={BrainstormBlitzPage} />
         <Route path="/join-club" component={JoinClub} />
         <Route path="/weekly-packs" component={WeeklyPacks} />
         <Route component={NotFound} />
