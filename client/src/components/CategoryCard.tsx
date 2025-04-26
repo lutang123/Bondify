@@ -40,12 +40,38 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
     }
   }
 
+  // Define the prompt text based on category
+  const getPromptText = () => {
+    switch(id) {
+      case 'twilight': return "Don't believe in love at first sight? Try this.";
+      case 'lovers': return "Curious about your partner's spicy secrets?";
+      case 'sunlit': return "In a bar or meetup and everyone's glued to their phones?";
+      case 'brainstorm': return "Up for some mental gymnastics?";
+      case 'woodland': return "Got a tiny human nearby who thinks like a philosopher trapped in a jellybean body?";
+      case 'mirror': return "Just vibing solo?";
+      default: return "";
+    }
+  };
+
+  // Define the description text based on category
+  const getDescriptionText = () => {
+    switch(id) {
+      case 'twilight': return "Romantic connection starters, deep cuts, and curveballs to spark unforgettable first dates. " + quote;
+      case 'lovers': return "This premium deck unlocks tasteful, vulnerable, and playful intimacy. " + quote;
+      case 'sunlit': return "This category brings laughter, party mode games, and bond with a stranger challenges. " + quote;
+      case 'brainstorm': return "Explore fun riddles, what-ifs, ethical dilemmas, and party-style debate prompts. " + quote;
+      case 'woodland': return "Bond with kids (or teens) in ways that matter. " + quote;
+      case 'mirror': return "This is your daily conversation with the realest person you know—yourself. Includes gratitude check-ins and personal growth prompts. " + quote;
+      default: return description;
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay }}
-      className="category-card rounded-3xl overflow-hidden shadow-soft bg-white border border-gray-100 hover:border-gray-300"
+      className="category-card rounded-3xl overflow-hidden shadow-soft bg-white border border-gray-100 hover:border-gray-300 flex flex-col h-full"
     >
       <div className="h-48 overflow-hidden relative">
         <img 
@@ -59,11 +85,11 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
         {/* Color gradient overlay on top of white overlay */}
         <div className={`absolute inset-0 ${getOverlayGradient(id)}`}></div>
         <div className="absolute bottom-0 left-0 w-full p-4">
-          <h3 className="font-accent text-2xl font-bold text-white drop-shadow-lg text-left">{name}</h3>
+          <h3 className="font-accent text-2xl font-bold text-white drop-shadow-lg">{name}</h3>
         </div>
       </div>
       
-      <div className="p-6">
+      <div className="p-6 flex-grow flex flex-col">
         <div className="flex justify-between items-center mb-3">
           <h4 className="font-semibold text-gray-700 text-sm">{subtitle}</h4>
           {isPremium && (
@@ -73,23 +99,12 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
             </span>
           )}
         </div>
-        <div className="mb-6">
+        <div className="mb-6 flex-grow">
           <p className="italic text-sm text-gray-500 mb-3 border-l-2 pl-3 border-gray-200">
-            "{id === 'twilight' ? "Don't believe in love at first sight? Try this." :
-              id === 'lovers' ? "Curious about your partner's spicy secrets?" :
-              id === 'sunlit' ? "In a bar or meetup and everyone's glued to their phones?" :
-              id === 'brainstorm' ? "Up for some mental gymnastics?" :
-              id === 'woodland' ? "Got a tiny human nearby who thinks like a philosopher trapped in a jellybean body?" :
-              id === 'mirror' ? "Just vibing solo?" : ""}"
+            "{getPromptText()}"
           </p>
           <p className="text-gray-700 text-base">
-            {id === 'twilight' ? "Romantic connection starters, deep cuts, and curveballs to spark unforgettable first dates. " + quote :
-             id === 'lovers' ? "This premium deck unlocks tasteful, vulnerable, and playful intimacy. " + quote :
-             id === 'sunlit' ? "This category brings laughter, party mode games, and bond with a stranger challenges. " + quote :
-             id === 'brainstorm' ? "Explore fun riddles, what-ifs, ethical dilemmas, and party-style debate prompts. " + quote :
-             id === 'woodland' ? "Bond with kids (or teens) in ways that matter. " + quote :
-             id === 'mirror' ? "This is your daily conversation with the realest person you know—yourself. Includes gratitude check-ins and personal growth prompts. " + quote :
-             description}
+            {getDescriptionText()}
           </p>
         </div>
         <Link 
