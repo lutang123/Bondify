@@ -124,6 +124,21 @@ function QuestionCard({
   );
 }
 
+// XP notification component
+function XPNotification({ amount, action }: { amount: number; action: string }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 20 }}
+      className="bg-white/80 backdrop-blur-sm rounded-lg p-2 px-4 shadow-lg absolute top-4 right-4 z-50 flex items-center"
+    >
+      <span className="font-medium text-purple-600">+{amount} XP</span>
+      <span className="ml-2 text-gray-600">for {action}</span>
+    </motion.div>
+  );
+}
+
 export default function CategoryPage() {
   const { id } = useParams<{ id: string }>();
   const [_, navigate] = useLocation();
@@ -135,6 +150,8 @@ export default function CategoryPage() {
   const [xp, setXp] = useState(0);
   const [shuffle, setShuffle] = useState(false);
   const [cards, setCards] = useState<string[]>([]);
+  const [showXPNotification, setShowXPNotification] = useState(false);
+  const [xpAction, setXpAction] = useState("");
   
   const category = categories.find(cat => cat.id === id);
   
@@ -201,11 +218,18 @@ export default function CategoryPage() {
   
   const handleFavorite = () => {
     if (favorites.includes(currentQuestionIndex)) {
-      // Remove from favorites
+      // Remove from favorites and deduct XP
       setFavorites(favorites.filter(i => i !== currentQuestionIndex));
+      setXp(prev => Math.max(0, prev - 5)); // Ensure XP doesn't go below 0
     } else {
-      // Add to favorites
+      // Add to favorites and give XP
       setFavorites([...favorites, currentQuestionIndex]);
+      setXp(prev => prev + 5);
+      
+      // Show XP notification
+      setXpAction("favoriting question");
+      setShowXPNotification(true);
+      setTimeout(() => setShowXPNotification(false), 2000);
     }
   };
   
@@ -213,7 +237,12 @@ export default function CategoryPage() {
     if (!answered.includes(currentQuestionIndex)) {
       // Add to answered and give XP
       setAnswered([...answered, currentQuestionIndex]);
-      setXp(prev => prev + 3);
+      setXp(prev => prev + 5); // Increased from 3 to 5 XP
+      
+      // Show XP notification
+      setXpAction("answering question");
+      setShowXPNotification(true);
+      setTimeout(() => setShowXPNotification(false), 2000);
     }
   };
   
@@ -283,6 +312,13 @@ export default function CategoryPage() {
   
   return (
     <div className={`min-h-screen ${backgroundClass} bg-fixed overflow-hidden`}>
+      {/* XP Notification */}
+      <AnimatePresence>
+        {showXPNotification && (
+          <XPNotification amount={5} action={xpAction} />
+        )}
+      </AnimatePresence>
+      
       {/* Background Image with overlay */}
       <div className="fixed inset-0 z-0">
         <img 
