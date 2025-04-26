@@ -52,16 +52,21 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
       default: return "";
     }
   };
+  
+  // Get tagline (formerly quote) for the second line
+  const getTagline = () => {
+    return quote; // The quotes are already in the data file as requested
+  };
 
   // Define the description text based on category
   const getDescriptionText = () => {
     switch(id) {
-      case 'twilight': return "Romantic connection starters, deep cuts, and curveballs to spark unforgettable first dates. " + quote;
-      case 'lovers': return "This premium deck unlocks tasteful, vulnerable, and playful intimacy. " + quote;
-      case 'sunlit': return "This category brings laughter, party mode games, and bond with a stranger challenges. " + quote;
-      case 'brainstorm': return "Explore fun riddles, what-ifs, ethical dilemmas, and party-style debate prompts. " + quote;
-      case 'woodland': return "Bond with kids (or teens) in ways that matter. " + quote;
-      case 'mirror': return "This is your daily conversation with the realest person you know—yourself. Includes gratitude check-ins and personal growth prompts. " + quote;
+      case 'twilight': return "Romantic connection starters, deep cuts, and curveballs to spark unforgettable first dates.";
+      case 'lovers': return "This premium deck unlocks tasteful, vulnerable, and playful intimacy.";
+      case 'sunlit': return "This category brings laughter, party mode games, and bond with a stranger challenges.";
+      case 'brainstorm': return "Explore fun riddles, what-ifs, ethical dilemmas, and party-style debate prompts.";
+      case 'woodland': return "Bond with kids (or teens) in ways that matter.";
+      case 'mirror': return "This is your daily conversation with the realest person you know—yourself. Includes gratitude check-ins and personal growth prompts.";
       default: return description;
     }
   };
@@ -100,10 +105,13 @@ export default function CategoryCard({ category, delay = 0 }: CategoryCardProps)
           )}
         </div>
         <div className="mb-6 flex-grow">
-          <p className="italic text-sm text-gray-500 mb-3 border-l-2 pl-3 border-gray-200">
-            "{getPromptText()}"
+          <p className="text-gray-700 font-medium text-base mb-2">
+            {getPromptText()}
           </p>
-          <p className="text-gray-700 text-base">
+          <p className="text-purple-500 text-sm font-medium mb-3">
+            {getTagline()}
+          </p>
+          <p className="text-gray-600 text-sm">
             {getDescriptionText()}
           </p>
         </div>
