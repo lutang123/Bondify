@@ -1,11 +1,11 @@
 // Use URLs for assets that will work in both development and production
-// Using SVG placeholders which are guaranteed to work
-const mirrorMeadowImage = "/assets/mirror_meadow.svg";
-const twilightTidesImage = "/assets/twilight_tide.svg";
-const loversLanternImage = "/assets/lover_lantern.svg";
-const woodlandWonderImage = "/assets/woodland_wonder.svg";
-const brainstormBlitzImage = "/assets/brainstorm_blitz.svg";
-const sunlitSocialImage = "/assets/sunlit_social.svg";
+
+const mirrorMeadowImage = "/src/assets/mirror_meadow.jpg";
+const twilightTidesImage = "/src/assets/twilight_tide.png";
+const loversLanternImage = "/src/assets/lover_lantern.png";
+const woodlandWonderImage = "/src/assets/woodland_wonder.png";
+const brainstormBlitzImage = "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200&q=80"
+const sunlitSocialImage = "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200&q=80"
 
 export interface Category {
   id: string;
